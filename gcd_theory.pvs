@@ -1,0 +1,23 @@
+gcd_theory: THEORY
+BEGIN
+
+  % Variables used for succinct quantification
+  i, j, d: VAR int
+  g: VAR posnat  % Defines g strictly as a positive natural number
+
+  % 1. Definition of the divisibility predicate over integers
+  divides?(d, i): bool = 
+    EXISTS (k: int): i = k * d
+
+  % 2. Definition of the GCD relation as a predicate
+  gcd?(i, j, g): bool =
+    divides?(g, i) AND 
+    divides?(g, j) AND
+    (FORALL d: (divides?(d, i) AND divides?(d, j)) => divides?(d, g))
+
+  % 3. Lemma: gcd? of 0 and 0 is always false for any posnat g
+  gcd_zero_zero_is_false: LEMMA
+    FORALL (g: posnat): NOT gcd?(0, 0, g)
+
+END gcd_theory
+
