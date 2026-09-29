@@ -7,7 +7,7 @@ O arquivo ([gcd_predicate.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_
 O arquivo ([gcd_predicate.prf](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gcd_predicate.prf)) contém a formalização das provas das propriedades relacionadas ao predicado <i>gcd</i>. 
 
 
-<hl>
+<hr>
 
 Mauricio Ayala-Rincón(https://mayalarincon.github.io)
 
