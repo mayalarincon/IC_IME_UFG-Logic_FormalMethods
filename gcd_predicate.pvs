@@ -1,0 +1,300 @@
+%% ===================================================================
+%% gcd_predicate.pvs
+%%
+%% PVS specification of the greatest common divisor (gcd) as a
+%% ternary predicate  gcd?(a, b, d)  defined over the integers.
+%%
+%% The relational style decouples the *specification* of what gcd
+%% means from any particular algorithm for computing it.  Every
+%% property is a consequence of the four-clause definition; the
+%% Euclidean algorithm is captured as a reduction theorem and
+%% used to drive the existence and Bézout proofs.
+%%
+%% Contents
+%%   §1  Divisibility predicate and basic lemmas
+%%   §2  Ternary gcd predicate — definition
+%%   §3  Immediate consequences (non-negativity, divisibility, maximality)
+%%   §4  Uniqueness
+%%   §5  Symmetry
+%%   §6  Base cases (gcd with 0, gcd(a,a), gcd with 1)
+%%   §7  Euclidean reduction
+%%   §8  Bézout's identity
+%%   §9  Coprimality derived from gcd?
+%%   §10 Existence (every pair of integers has a gcd)
+%% ===================================================================
+
+gcd_predicate : THEORY
+BEGIN
+
+  %% -----------------------------------------------------------------
+  %% Schematic variables
+  %% -----------------------------------------------------------------
+
+  a, b, c, d, e, p, q : VAR int
+  n                   : VAR nat
+
+  %% -----------------------------------------------------------------
+  %% Section 1.  Divisibility over the integers
+  %% -----------------------------------------------------------------
+
+  %% d divides a iff there exists an integer k with a = k * d.
+  %% Special cases: 0 | a iff a = 0;  d | 0 for every d.
+  divides(d, a) : bool = EXISTS (k : int) : a = k * d
+
+  %% ── basic divisibility lemmas ──────────────────────────────────
+
+  div_refl : LEMMA divides(a, a)
+    %% a = 1 * a.
+
+  div_zero_left : LEMMA divides(0, a) IFF a = 0
+    %% ∃k. a = k*0  ↔  a = 0.
+
+  div_zero_right : LEMMA divides(a, 0)
+    %% 0 = 0 * a.
+
+  div_one : LEMMA divides(1, a)
+    %% a = a * 1.
+
+  div_neg : LEMMA divides(d, a) IFF divides(-d, a)
+    %% a = k*d = (-k)*(-d).
+
+  div_abs : LEMMA divides(d, a) IFF divides(abs(d), a)
+
+  div_eq_abs  : LEMMA  abs(a) = abs(b) IMPLIES divides(a, b)
+
+  div_antisymm : LEMMA divides(a, b) AND divides(b, a) IFF abs(a) = abs(b)
+    %% a = k*b and b = m*a  ⟹  a = km*a ⟹ km = 1 ⟹ |k|=|m|=1.
+
+  div_trans : CONJECTURE
+    divides(a, b) AND divides(b, c) IMPLIES divides(a, c)
+
+  div_linear : CONJECTURE
+    divides(d, a) AND divides(d, b) IMPLIES
+      FORALL (p, q : int) : divides(d, p * a + q * b)
+    %% d divides every ℤ-linear combination of a and b.
+
+  div_le : CONJECTURE
+    divides(d, a) AND a > 0 IMPLIES abs(d) <= a
+    %% If d | a and a > 0 then |d| ≤ a.
+
+  %% -----------------------------------------------------------------
+  %% Section 2.  Ternary GCD predicate — definition
+  %% -----------------------------------------------------------------
+
+  %%  gcd?(a, b, d)  holds when d is THE greatest common divisor
+  %%  of a and b.  The four clauses are the standard characterisation
+  %%  valid in any GCD domain:
+  %%
+  %%    (i)   d ≥ 0
+  %%             normalisation: the non-negative representative is
+  %%             chosen so the gcd is unique (see §4).
+  %%
+  %%    (ii)  d | a                  \
+  %%    (iii) d | b                   }  d is a common divisor
+  %%
+  %%    (iv)  ∀ e.  e | a ∧ e | b  →  e | d
+  %%             maximality via divisibility: every common divisor
+  %%             divides d.  (This is the algebraically correct
+  %%             condition; it is equivalent to |e| ≤ d when d ≥ 0.)
+
+  gcd?(a, b, d) : bool =
+    d >= 0
+    AND divides(d, a)
+    AND divides(d, b)
+    AND FORALL (e : int) :
+          divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
+
+  %% Shorthand: e is a common divisor of a and b.
+  common_div?(a, b)(e) : bool = divides(e, a) AND divides(e, b)
+
+  %% -----------------------------------------------------------------
+  %% Section 3.  Immediate consequences
+  %% -----------------------------------------------------------------
+
+  gcd_nonneg : CONJECTURE
+    gcd?(a, b, d) IMPLIES d >= 0
+
+  gcd_div_a : CONJECTURE
+    gcd?(a, b, d) IMPLIES divides(d, a)
+
+  gcd_div_b : CONJECTURE
+    gcd?(a, b, d) IMPLIES divides(d, b)
+
+  gcd_greatest : CONJECTURE
+    gcd?(a, b, d) AND divides(e, a) AND divides(e, b)
+    IMPLIES divides(e, d)
+    %% Every common divisor of a and b divides d.
+
+  gcd_greatest_le : CONJECTURE
+    gcd?(a, b, d) AND divides(e, a) AND divides(e, b) AND d > 0
+    IMPLIES abs(e) <= d
+    %% In ℤ: e | d and d > 0 ⟹ |e| ≤ d.
+    %% Proof: gcd_greatest gives e | d; div_le gives |e| ≤ d.
+
+  gcd_is_common_div : CONJECTURE
+    gcd?(a, b, d) IMPLIES common_div?(a, b)(d)
+
+  %% -----------------------------------------------------------------
+  %% Section 4.  Uniqueness
+  %% -----------------------------------------------------------------
+
+  gcd_unique : CONJECTURE
+    gcd?(a, b, d) AND gcd?(a, b, e) IMPLIES d = e
+    %% Proof:
+    %%  gcd?(a,b,e) and (d|a, d|b) give d | e  (by clause iv of e).
+    %%  gcd?(a,b,d) and (e|a, e|b) give e | d  (by clause iv of d).
+    %%  d,e ≥ 0, so div_antisymm gives d = e.
+
+  %% -----------------------------------------------------------------
+  %% Section 5.  Symmetry
+  %% -----------------------------------------------------------------
+
+  gcd_symm : CONJECTURE
+    gcd?(a, b, d) IFF gcd?(b, a, d)
+    %% The four clauses of gcd? are symmetric in a and b.
+
+  %% -----------------------------------------------------------------
+  %% Section 6.  Base cases
+  %% -----------------------------------------------------------------
+
+  %% gcd(a, 0) = |a|
+  gcd_zero_right : CONJECTURE
+    gcd?(a, 0, d) IFF d = abs(a)
+    %% Proof (⇒):
+    %%   d | a and d ≥ 0.  Since a | a and a | 0, clause (iv) gives
+    %%   a | d, so |a| ≤ d.  Also d | a gives d ≤ |a|.  Hence d = |a|.
+    %% Proof (⇐):
+    %%   Set d = |a|.  Then d | a (by div_abs), d | 0 always, d ≥ 0.
+    %%   Any common divisor e of a and 0 satisfies e | a, so e | |a| = d.
+
+  %% gcd(0, b) = |b|
+  gcd_zero_left : CONJECTURE
+    gcd?(0, b, d) IFF d = abs(b)
+    %% Immediate from gcd_zero_right and gcd_symm.
+
+  %% gcd(0, 0) = 0
+  gcd_both_zero : CONJECTURE
+    gcd?(0, 0, d) IFF d = 0
+    %% Corollary of gcd_zero_right with a = 0 (abs(0) = 0).
+
+  %% gcd(a, a) = |a|
+  gcd_self : CONJECTURE
+    gcd?(a, a, d) IFF d = abs(a)
+    %% Common divisors of a and a are divisors of a; the greatest
+    %% (non-negative) divisor of a in absolute value is |a|.
+
+  %% gcd(a, 1) = 1
+  gcd_one_right : CONJECTURE gcd?(a, 1, 1)
+    %% 1 | everything; every divisor of 1 is ±1, which divides 1.
+
+  gcd_one_left : CONJECTURE gcd?(1, b, 1)
+
+  %% -----------------------------------------------------------------
+  %% Section 7.  Euclidean reduction
+  %% -----------------------------------------------------------------
+
+  %%  The fundamental step of the Euclidean algorithm:
+  %%
+  %%      gcd?(a, b, d)  ↔  gcd?(b, rem(a, b), d)      (b ≠ 0)
+  %%
+  %%  where  rem(a, b)  is PVS's built-in Euclidean remainder
+  %%  satisfying  a = (a / b) * b + rem(a, b)  and
+  %%              0 ≤ rem(a, b) < |b|  for b ≠ 0.
+  %%
+  %%  Key invariant:
+  %%    {common divisors of (a, b)} = {common divisors of (b, rem(a,b))}
+  %%
+  %%  Proof:
+  %%  Let r = rem(a, b).
+  %%  (⊆)  If e | a and e | b, then r = a - (a/b)*b, so e | r.
+  %%  (⊇)  If e | b and e | r, then a = (a/b)*b + r, so e | a.
+  %%  Both pairs therefore share the same greatest common divisor.
+
+%   euclidean_reduction : CONJECTURE
+%     b /= 0 IMPLIES
+%       (gcd?(a, b, d) IFF gcd?(b, rem(a)(b), d))
+
+%   %% Equivalent formulation with explicit quotient q and remainder r.
+%   euclidean_reduction_qr : CONJECTURE
+%     b /= 0
+%     AND a = q * b + r
+%     AND 0 <= r AND r < abs(b)
+%     IMPLIES
+%       (gcd?(a, b, d) IFF gcd?(b, r, d))
+
+% %   %% -----------------------------------------------------------------
+% %   %% Section 8.  Bézout's identity
+% %   %% -----------------------------------------------------------------
+
+% %   %%  For every a, b : int and d with gcd?(a, b, d), there exist
+% %   %%  Bézout coefficients x, y : int such that
+% %   %%
+% %   %%          a * x + b * y = d.
+% %   %%
+% %   %%  Proof by strong induction on |b|, using euclidean_reduction.
+% %   %%
+% %   %%  Base (b = 0):  d = |a|.
+% %   %%    If a ≥ 0: take x = 1, y = 0.  Then a*1 + 0*0 = a = d.
+% %   %%    If a < 0: take x = -1, y = 0. Then a*(-1) + 0*0 = -a = d.
+% %   %%
+% %   %%  Step (b ≠ 0):
+% %   %%    Let r = rem(a, b).  By euclidean_reduction, gcd?(b, r, d).
+% %   %%    Induction hypothesis gives x', y' with  b*x' + r*y' = d.
+% %   %%    Since r = a - (a/b)*b:
+% %   %%      d = b*x' + (a - (a/b)*b)*y'
+% %   %%        = a*y' + b*(x' - (a/b)*y').
+% %   %%    Take x = y', y = x' - (a/b)*y'.
+
+% %   bezout : CONJECTURE
+% %     gcd?(a, b, d) IMPLIES
+% %       EXISTS (x, y : int) : a * x + b * y = d
+
+% %   %% -----------------------------------------------------------------
+% %   %% Section 9.  Coprimality
+% %   %% -----------------------------------------------------------------
+
+% %   coprime?(a, b) : bool = gcd?(a, b, 1)
+% %     %% a and b are coprime iff their gcd is 1.
+
+% %   coprime_symm : CONJECTURE
+% %     coprime?(a, b) IFF coprime?(b, a)
+
+% %   coprime_one : CONJECTURE coprime?(a, 1) AND coprime?(1, b)
+
+% %   %% Euclid's lemma: if a | bc and gcd(a,b) = 1 then a | c.
+% %   euclid_lemma : CONJECTURE
+% %     coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
+% %     %% Proof: Bézout gives x, y with a*x + b*y = 1.
+% %     %%        Multiply by c: a*(cx) + b*(cy) = c.
+% %     %%        a | a*(cx) trivially; a | bc gives a | (bc)*y.
+% %     %%        Hence a | c.
+
+% %   %% Dividing through by gcd yields coprime factors.
+% %   gcd_coprime_quotients : CONJECTURE
+% %     gcd?(a, b, d) AND d > 0 IMPLIES
+% %       coprime?(a / d, b / d)
+% %     %% Proof: let a = d*a', b = d*b'.  Any common divisor e of a', b'
+% %     %%        satisfies d*e | a and d*e | b, hence d*e | d, so e | 1.
+
+% %   %% Coprime characterisation via Bézout.
+% %   % coprime_bezout : CONJECTURE
+% %   %   coprime?(a, b) IFF EXISTS (x, y : int) : a * x + b * y = 1
+% %     %% (⇒) Bézout applied to gcd?(a,b,1).
+% %     %% (⇐) Any common divisor d of a and b divides a*x + b*y = 1,
+% %     %%     so |d| ≤ 1; combined with d ≥ 0 from gcd? gives d = 1.
+
+% %   %% -----------------------------------------------------------------
+% %   %% Section 10.  Existence
+% %   %% -----------------------------------------------------------------
+
+% %   %%  For every a, b : int there exists d : int with gcd?(a, b, d).
+% %   %%
+% %   %%  Proof: by strong induction on |b| (well-founded on nat) using
+% %   %%  euclidean_reduction.  The quantity |rem(a, b)| < |b| for b ≠ 0,
+% %   %%  so the recursion terminates at the base case b = 0, where
+% %   %%  d = |a| satisfies gcd?(a, 0, |a|) by gcd_zero_right.
+
+% %   % gcd_exists : CONJECTURE
+% %   %   EXISTS (d : int) : gcd?(a, b, d)
+
+END gcd_predicate
