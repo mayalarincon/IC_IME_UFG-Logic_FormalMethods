@@ -64,11 +64,11 @@ BEGIN
 
   div_antisymm : LEMMA divides(a, b) AND divides(b, a) IFF abs(a) = abs(b)
     %% a = k*b and b = m*a  ⟹  a = km*a ⟹ km = 1 ⟹ |k|=|m|=1.
-
-  div_trans : CONJECTURE
+  
+  div_trans : LEMMA
     divides(a, b) AND divides(b, c) IMPLIES divides(a, c)
 
-  div_linear : CONJECTURE
+  div_linear : LEMMA
     divides(d, a) AND divides(d, b) IMPLIES
       FORALL (p, q : int) : divides(d, p * a + q * b)
     %% d divides every ℤ-linear combination of a and b.
