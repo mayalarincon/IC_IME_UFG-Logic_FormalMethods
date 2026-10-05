@@ -1,0 +1,705 @@
+{
+ "gcd_predicate.gcd_nonneg": [
+  {
+   "info": {
+    "theory": "gcd_predicate",
+    "formula": "gcd_nonneg",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "8d7e5ad0cb503d9f4b7d3760cf9b00915c28e6bccaf992aa30dbb896b911e506"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_nonneg",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(prop)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gcd_predicate.gcd_div_a": [
+  {
+   "info": {
+    "theory": "gcd_predicate",
+    "formula": "gcd_div_a",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "4d7b90f8fb8fa6b1386af9c7e75841d7b0c299862c8b690520338f93b3377108"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_div_a",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(flatten)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gcd_predicate.gcd_div_b": [
+  {
+   "info": {
+    "theory": "gcd_predicate",
+    "formula": "gcd_div_b",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "4b18fbf1d1bd9f3eaab8d52338fa93bd26a32461b91f9c67e4563b50721b2b61"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_div_b",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(flatten)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gcd_predicate.gcd_greatest": [
+  {
+   "info": {
+    "theory": "gcd_predicate",
+    "formula": "gcd_greatest",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "00056866922640b0e4d6044518bcc37923911a5307f74798006425dccd1b078f"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_greatest",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(flatten)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst -4 e)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(assert)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gcd_predicate.gcd_greatest_le": [
+  {
+   "info": {
+    "theory": "gcd_predicate",
+    "formula": "gcd_greatest_le",
+    "status": "proved",
+    "prover": "PVS 7.1.0 (Allegro CL Enterprise Edition)",
+    "shasum": "329088861ddcd13171fb28ed544b12f5b43816a2571cad958cbd28a228d99b64"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_greatest_le",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(prop)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(inst -4 \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(prop)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(hide-all-but (1 -7 -1))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(skeep)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(expand \"abs\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(lift-if)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(prop)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(replace -2 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"neg_times_neg\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(inst -1 \"k\" \"e\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(lemma \"both_sides_times_pos_le1\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(inst -1 \"-e\" \"1\" \"-k\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(prop)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.1.1",
+                "name": "(1.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.1.1",
+                  "name": "(replace -3 -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.1.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "1.1.2",
+                "name": "(1.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.1.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.1.2",
+                  "name": "(lemma \"pos_times_le\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.1.2",
+                  "name": "(inst -1 \"-k\" \"-e\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.1.2",
+                  "name": "(prop)",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.1.2.1",
+                    "name": "(1.1.2.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.1.2.2",
+                    "name": "(1.1.2.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.2",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.1.2.3",
+                    "name": "(1.1.2.3)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.3",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.1.2.4",
+                    "name": "(1.1.2.4)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.4",
+                      "name": "(case-replace \"e = 0\")",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "1.1.2.4.1",
+                        "name": "(1.1.2.4.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.1.2.4.1",
+                          "name": "(assert)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "1.1.2.4.2",
+                        "name": "(1.1.2.4.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.1.2.4.2",
+                          "name": "(assert)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.1.2.5",
+                    "name": "(1.1.2.5)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.5",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.1.2.6",
+                    "name": "(1.1.2.6)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.1.2.6",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(prop)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.2.1",
+                "name": "(1.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.2.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "1.2.2",
+                "name": "(1.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.2.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(case-replace \"e = 0\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(assert)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(lemma \"pos_times_le\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(inst -1 \"k\" \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(prop)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.2.1",
+                "name": "(2.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.1",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.2.1",
+                  "name": "(case-replace \"k = 0\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "2.2.1.1",
+                    "name": "(2.2.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.1.1",
+                      "name": "(assert)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "2.2.1.2",
+                    "name": "(2.2.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.2.1.2",
+                      "name": "(replace -4 4)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.2.1.2",
+                      "name": "(lemma \"both_sides_times_pos_le1\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.2.1.2",
+                      "name": "(inst -1 \"e\" \"1\" \"k\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.2.1.2",
+                      "name": "(prop)",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "2.2.1.2.1",
+                        "name": "(2.2.1.2.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.1.2.1",
+                          "name": "(assert)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "2.2.1.2.2",
+                        "name": "(2.2.1.2.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "2.2.1.2.2",
+                          "name": "(assert)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.2",
+                "name": "(2.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.2",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.3",
+                "name": "(2.2.3)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.3",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.4",
+                "name": "(2.2.4)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.4",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.5",
+                "name": "(2.2.5)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.5",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.6",
+                "name": "(2.2.6)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.6",
+                  "name": "(assert)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

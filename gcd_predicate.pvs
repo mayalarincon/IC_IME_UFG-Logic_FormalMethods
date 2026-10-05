@@ -111,20 +111,25 @@ BEGIN
   %% Section 3.  Immediate consequences
   %% -----------------------------------------------------------------
 
-  gcd_nonneg : CONJECTURE
+  % @QED gcd_nonneg proved by arthur on Mon, 05 Oct 2026 18:26:19 GMT
+  gcd_nonneg : LEMMA 
     gcd?(a, b, d) IMPLIES d >= 0
 
-  gcd_div_a : CONJECTURE
+  % @QED gcd_div_a proved by arthur on Mon, 05 Oct 2026 18:26:50 GMT
+  gcd_div_a : LEMMA 
     gcd?(a, b, d) IMPLIES divides(d, a)
 
-  gcd_div_b : CONJECTURE
+  % @QED gcd_div_b proved by arthur on Mon, 05 Oct 2026 18:27:39 GMT
+  gcd_div_b : LEMMA
     gcd?(a, b, d) IMPLIES divides(d, b)
 
-  gcd_greatest : CONJECTURE
+  % @QED gcd_greatest proved by arthur on Mon, 05 Oct 2026 18:29:20 GMT
+  gcd_greatest : LEMMA
     gcd?(a, b, d) AND divides(e, a) AND divides(e, b)
     IMPLIES divides(e, d)
     %% Every common divisor of a and b divides d.
 
+  % @QED gcd_greatest_le proved by arthur on Mon, 05 Oct 2026 19:33:39 GMT
   gcd_greatest_le : CONJECTURE
     gcd?(a, b, d) AND divides(e, a) AND divides(e, b) AND d > 0
     IMPLIES abs(e) <= d
