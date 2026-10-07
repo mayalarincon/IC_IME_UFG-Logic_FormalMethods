@@ -31,7 +31,7 @@ BEGIN
   %% -----------------------------------------------------------------
 
   a, b, c, d, e, p, q : VAR int
-  n                   : VAR nat
+  n, r                : VAR nat
 
   %% -----------------------------------------------------------------
   %% Section 1.  Divisibility over the integers
@@ -73,7 +73,7 @@ BEGIN
       FORALL (p, q : int) : divides(d, p * a + q * b)
     %% d divides every ℤ-linear combination of a and b.
 
-  div_le : CONJECTURE
+  div_le : LEMMA
     divides(d, a) AND a > 0 IMPLIES abs(d) <= a
     %% If d | a and a > 0 then |d| ≤ a.
 
@@ -111,39 +111,34 @@ BEGIN
   %% Section 3.  Immediate consequences
   %% -----------------------------------------------------------------
 
-  % @QED gcd_nonneg proved by arthur on Mon, 05 Oct 2026 18:26:19 GMT
-  gcd_nonneg : LEMMA 
+  gcd_nonneg : LEMMA
     gcd?(a, b, d) IMPLIES d >= 0
 
-  % @QED gcd_div_a proved by arthur on Mon, 05 Oct 2026 18:26:50 GMT
-  gcd_div_a : LEMMA 
+  gcd_div_a : LEMMA
     gcd?(a, b, d) IMPLIES divides(d, a)
 
-  % @QED gcd_div_b proved by arthur on Mon, 05 Oct 2026 18:27:39 GMT
   gcd_div_b : LEMMA
     gcd?(a, b, d) IMPLIES divides(d, b)
 
-  % @QED gcd_greatest proved by arthur on Mon, 05 Oct 2026 18:29:20 GMT
   gcd_greatest : LEMMA
     gcd?(a, b, d) AND divides(e, a) AND divides(e, b)
     IMPLIES divides(e, d)
     %% Every common divisor of a and b divides d.
 
-  % @QED gcd_greatest_le proved by arthur on Mon, 05 Oct 2026 19:33:39 GMT
-  gcd_greatest_le : CONJECTURE
+  gcd_greatest_le : LEMMA
     gcd?(a, b, d) AND divides(e, a) AND divides(e, b) AND d > 0
     IMPLIES abs(e) <= d
     %% In ℤ: e | d and d > 0 ⟹ |e| ≤ d.
     %% Proof: gcd_greatest gives e | d; div_le gives |e| ≤ d.
 
-  gcd_is_common_div : CONJECTURE
+  gcd_is_common_div : LEMMA
     gcd?(a, b, d) IMPLIES common_div?(a, b)(d)
 
   %% -----------------------------------------------------------------
   %% Section 4.  Uniqueness
   %% -----------------------------------------------------------------
 
-  gcd_unique : CONJECTURE
+  gcd_unique : LEMMA
     gcd?(a, b, d) AND gcd?(a, b, e) IMPLIES d = e
     %% Proof:
     %%  gcd?(a,b,e) and (d|a, d|b) give d | e  (by clause iv of e).
@@ -154,7 +149,7 @@ BEGIN
   %% Section 5.  Symmetry
   %% -----------------------------------------------------------------
 
-  gcd_symm : CONJECTURE
+  gcd_symm : LEMMA
     gcd?(a, b, d) IFF gcd?(b, a, d)
     %% The four clauses of gcd? are symmetric in a and b.
 
@@ -163,7 +158,7 @@ BEGIN
   %% -----------------------------------------------------------------
 
   %% gcd(a, 0) = |a|
-  gcd_zero_right : CONJECTURE
+  gcd_zero_right : LEMMA
     gcd?(a, 0, d) IFF d = abs(a)
     %% Proof (⇒):
     %%   d | a and d ≥ 0.  Since a | a and a | 0, clause (iv) gives
@@ -173,59 +168,60 @@ BEGIN
     %%   Any common divisor e of a and 0 satisfies e | a, so e | |a| = d.
 
   %% gcd(0, b) = |b|
-  gcd_zero_left : CONJECTURE
+  gcd_zero_left : LEMMA
     gcd?(0, b, d) IFF d = abs(b)
     %% Immediate from gcd_zero_right and gcd_symm.
 
   %% gcd(0, 0) = 0
-  gcd_both_zero : CONJECTURE
+  gcd_both_zero : LEMMA
     gcd?(0, 0, d) IFF d = 0
     %% Corollary of gcd_zero_right with a = 0 (abs(0) = 0).
 
   %% gcd(a, a) = |a|
-  gcd_self : CONJECTURE
+  gcd_self : LEMMA
     gcd?(a, a, d) IFF d = abs(a)
     %% Common divisors of a and a are divisors of a; the greatest
     %% (non-negative) divisor of a in absolute value is |a|.
 
   %% gcd(a, 1) = 1
-  gcd_one_right : CONJECTURE gcd?(a, 1, 1)
+  gcd_one_right : LEMMA gcd?(a, 1, 1)
     %% 1 | everything; every divisor of 1 is ±1, which divides 1.
 
-  gcd_one_left : CONJECTURE gcd?(1, b, 1)
+  gcd_one_left : LEMMA gcd?(1, b, 1)
 
-  %% -----------------------------------------------------------------
-  %% Section 7.  Euclidean reduction
-  %% -----------------------------------------------------------------
+%   % -----------------------------------------------------------------
+%   % Section 7.  Euclidean reduction
+%   % -----------------------------------------------------------------
 
-  %%  The fundamental step of the Euclidean algorithm:
-  %%
-  %%      gcd?(a, b, d)  ↔  gcd?(b, rem(a, b), d)      (b ≠ 0)
-  %%
-  %%  where  rem(a, b)  is PVS's built-in Euclidean remainder
-  %%  satisfying  a = (a / b) * b + rem(a, b)  and
-  %%              0 ≤ rem(a, b) < |b|  for b ≠ 0.
-  %%
-  %%  Key invariant:
-  %%    {common divisors of (a, b)} = {common divisors of (b, rem(a,b))}
-  %%
-  %%  Proof:
-  %%  Let r = rem(a, b).
-  %%  (⊆)  If e | a and e | b, then r = a - (a/b)*b, so e | r.
-  %%  (⊇)  If e | b and e | r, then a = (a/b)*b + r, so e | a.
-  %%  Both pairs therefore share the same greatest common divisor.
+%   %  The fundamental step of the Euclidean algorithm:
+%   %
+%   %      gcd?(a, b, d)  ↔  gcd?(b, rem(a, b), d)      (b ≠ 0)
+%   %
+%   %  where  rem(a, b)  is PVS's built-in Euclidean remainder
+%   %  satisfying  a = (a / b) * b + rem(a, b)  and
+%   %              0 ≤ rem(a, b) < |b|  for b ≠ 0.
+%   %
+%   %  Key invariant:
+%   %    {common divisors of (a, b)} = {common divisors of (b, rem(a,b))}
+%   %
+%   %  Proof:
+%   %  Let r = rem(a, b).
+%   %  (⊆)  If e | a and e | b, then r = a - (a/b)*b, so e | r.
+%   %  (⊇)  If e | b and e | r, then a = (a/b)*b + r, so e | a.
+%   %  Both pairs therefore share the same greatest common divisor.
 
-%   euclidean_reduction : CONJECTURE
-%     b /= 0 IMPLIES
-%       (gcd?(a, b, d) IFF gcd?(b, rem(a)(b), d))
+   %% Formulation with explicit quotient q and remainder r.
+   euclidean_reduction_qr : LEMMA
+     b /= 0
+     AND a = q * b + r
+     AND r < abs(b)
+     IMPLIES
+       (gcd?(a, b, d) IFF gcd?(b, r, d))
 
-%   %% Equivalent formulation with explicit quotient q and remainder r.
-%   euclidean_reduction_qr : CONJECTURE
-%     b /= 0
-%     AND a = q * b + r
-%     AND 0 <= r AND r < abs(b)
-%     IMPLIES
-%       (gcd?(a, b, d) IFF gcd?(b, r, d))
+  %% Equivalent formulation with PVS's remainder (a mod b = rem(abs(b))(a)).
+  euclidean_reduction : LEMMA
+     b /= 0 IMPLIES
+       (gcd?(a, b, d) IFF gcd?(b, rem(abs(b))(a), d))
 
 % %   %% -----------------------------------------------------------------
 % %   %% Section 8.  Bézout's identity
