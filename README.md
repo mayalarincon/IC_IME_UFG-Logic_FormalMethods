@@ -8,7 +8,7 @@ O arquivo ([gcd_predicate.prf](https://github.com/mayalarincon/IC_IME_UFG-Logic_
 
 Recomenda-se a instalação da versão 8.1 de PVS, o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Otrossim, é também possível instalação direita do PVS e da livraria nasalib de PVS e utilização do PVS da maneira clássica sobre Emacs.
 
-Veja alguns tutorias disponíveis através de links na página do tutorial "" realizado durante o CICM 2025:
+Veja alguns tutorias disponíveis através de links na página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
 
 
 
