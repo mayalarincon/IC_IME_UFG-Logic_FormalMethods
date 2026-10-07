@@ -10,6 +10,8 @@ Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs
 
 Veja alguns tutorias disponíveis através de links na página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
 
+Para fundamentos de dedução lógica e relação de técnicas dedutivas implementadas em provadores interactivos de teoremas como PVS, recomenda-se o livro texto  [Applied Logic for Computer Scientists and Mathematicians](https://link.springer.com/book/9783032416490).
+
 
 
 
