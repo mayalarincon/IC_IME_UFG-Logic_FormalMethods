@@ -17,10 +17,10 @@ Para fundamentos de dedução lógica e relação de técnicas dedutivas impleme
 <hr>
 
 ### Às segundas, 15 h:   reunião presencial no laboratório,
-Zoom link: []()
+Zoom link: [https://us02web.zoom.us/j/83059998347?pwd=SdQt4TQl1l4F29nfCzRHjHR0pCCVXW.1](https://us02web.zoom.us/j/83059998347?pwd=SdQt4TQl1l4F29nfCzRHjHR0pCCVXW.1) 
 
 ### Às quartas, 10 h:    Reunião presencial no laboratório,
-Zoom link: []()
+Zoom link: [https://us02web.zoom.us/j/82537318521?pwd=mgjSia6beiGZMmYlxKSwDREFrduoaX.1](https://us02web.zoom.us/j/82537318521?pwd=mgjSia6beiGZMmYlxKSwDREFrduoaX.1)
 
 ### Às sextas, 10 h: Seminário do Grupo de Teoria da Computação, 
 Zoom link:  [https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1](https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1)
