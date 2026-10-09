@@ -12,14 +12,17 @@ Veja alguns tutorias disponíveis através de links na página do tutorial ["For
 
 Para fundamentos de dedução lógica e relação de técnicas dedutivas implementadas em provadores interactivos de teoremas como PVS, recomenda-se o livro texto  [Applied Logic for Computer Scientists and Mathematicians](https://link.springer.com/book/9783032416490).
 
+<hr>
+## Atividades semanais do grupo (semestre 2026.2):
+<hr>
 
-# Atividades semanais do grupo (semestre 2026.2):
+### Às segundas, 15 h:   reunião presencial no laboratório,
+Zoom link: []()
 
-## Às segundas, 15 h:   reunião no laboratório,
+### Às quartas, 10 h:    Reunião presencial no laboratório,
+Zoom link: []()
 
-## Às quartas, 10 h:    Reunião no laboratório,
-
-## Às sextas, 10 h: Seminário do Grupo de Teoria da Computação, 
+### Às sextas, 10 h: Seminário do Grupo de Teoria da Computação, 
 Zoom link:  [https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1](https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1)
 
 
