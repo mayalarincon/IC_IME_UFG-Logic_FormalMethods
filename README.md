@@ -20,7 +20,7 @@ Para fundamentos de dedução lógica e relação de técnicas dedutivas impleme
 ## Às quartas, 10 h:    Reunião no laboratório,
 
 ## Às sextas, 10 h: Seminário do Grupo de Teoria da Computação, 
-Zoom link:  (https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1)[https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1]
+Zoom link:  [https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1](https://us02web.zoom.us/j/84309819804?pwd=mSxGuOBqw9XbEMKofAJnt5VAvi88ny.1)
 
 
 <hr>
