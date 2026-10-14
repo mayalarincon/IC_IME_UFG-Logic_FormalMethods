@@ -223,6 +223,20 @@ BEGIN
      b /= 0 IMPLIES
        (gcd?(a, b, d) IFF gcd?(b, rem(abs(b))(a), d))
 
+
+f_gcd(i : int, (j:int | NOT ( i = 0 AND j = 0) ) )  : RECURSIVE posnat = 
+IF (i = 0 OR j = 0) THEN abs(i+j)
+ELSIF abs(i) >= abs(j) THEN f_gcd(rem(abs(j))(i), j)
+ELSE f_gcd(rem(abs(i))(j), i)
+ENDIF
+MEASURE abs(i) + abs(j)
+
+f_gcd_is_correct  :  CONJECTURE 
+ FORALL(i : int, (j:int | NOT ( i = 0 AND j = 0) )) : gcd?(i,j,d)  IFF f_gcd(i,j) = d
+
+
+
+
 % %   %% -----------------------------------------------------------------
 % %   %% Section 8.  Bézout's identity
 % %   %% -----------------------------------------------------------------

@@ -6,5 +6,35 @@ gcd_predicate_TCCS: THEORY BEGIN
 	    % expected type  posnat
 	euclidean_reduction_TCC1: OBLIGATION
 	FORALL (b: int): b /= 0 IMPLIES abs(b) > 0
+	
+	% Subtype TCC generated (at line 228, column 25) for  abs(i + j)
+	    % expected type  posnat
+	f_gcd_TCC1: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): (i = 0 OR j = 0) IMPLIES abs(i + j) > 0
+	
+	% Subtype TCC generated (at line 229, column 38) for  abs(j)
+	    % expected type  posnat
+	f_gcd_TCC2: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): NOT i = 0 AND NOT j = 0 AND abs(i) >= abs(j) IMPLIES abs(j) > 0
+	
+	% Subtype TCC generated (at line 229, column 50) for  j
+	    % expected type  {j_1: int | NOT (rem(abs(j))(i) = 0 AND j_1 = 0)}
+	f_gcd_TCC3: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): NOT i = 0 AND NOT j = 0 AND abs(i) >= abs(j) IMPLIES NOT (rem(abs(j))(i) = 0 AND j = 0)
+	
+	% Termination TCC generated (at line 229, column 28) for
+	    % f_gcd(rem(abs(j))(i), j)
+	f_gcd_TCC4: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): NOT i = 0 AND NOT j = 0 AND abs(i) >= abs(j) IMPLIES abs(rem(abs(j))(i)) + abs(j) < abs(i) + abs(j)
+	
+	% Subtype TCC generated (at line 230, column 27) for  i
+	    % expected type  {j_1: int | NOT (rem(abs(i))(j) = 0 AND j_1 = 0)}
+	f_gcd_TCC5: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): NOT i = 0 AND NOT j = 0 AND NOT abs(i) >= abs(j) IMPLIES NOT (rem(abs(i))(j) = 0 AND i = 0)
+	
+	% Termination TCC generated (at line 230, column 5) for
+	    % f_gcd(rem(abs(i))(j), i)
+	f_gcd_TCC6: OBLIGATION
+	FORALL (i: int, (j: int | NOT (i = 0 AND j = 0))): NOT i = 0 AND NOT j = 0 AND NOT abs(i) >= abs(j) IMPLIES abs(rem(abs(i))(j)) + abs(i) < abs(i) + abs(j)
 
 END gcd_predicate_TCCS
