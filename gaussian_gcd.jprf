@@ -1,0 +1,170 @@
+{
+ "gaussian_gcd.norm_TCC1": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "norm_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gaussian_gcd.gquot_TCC1": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "gquot_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gquot_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"norm_pos\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"nb\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gaussian_gcd.ggcd_TCC1": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "ggcd_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ggcd_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gaussian_gcd.ggcd_TCC2": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "ggcd_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ggcd_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"grem_norm_lt\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gaussian_gcd.gadd_comm": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "gadd_comm",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gadd_comm",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "gaussian_gcd.gadd_assoc": [
+  {
+   "info": {
+    "theory": "gaussian_gcd",
+    "formula": "gadd_assoc",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "46cd418a11bf2b601b05e75f72d227b629db68617cf491d72d128823e7c8af22"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gadd_assoc",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

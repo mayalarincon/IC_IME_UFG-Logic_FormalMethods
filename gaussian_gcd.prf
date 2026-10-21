@@ -1,0 +1,165 @@
+(|gaussian_gcd|
+ (|gadd_comm| 0 (|gadd_comm-0| "" 4001532924 ("" (GRIND) NIL NIL) NIL SHOSTAK)
+  (|gadd_comm-1| NIL 4001532924 ("" (POSTPONE) NIL NIL) NIL SHOSTAK))
+ (|gadd_assoc| 0
+  (|gadd_assoc-0| "" 4001532940 ("" (GRIND) NIL NIL) NIL SHOSTAK)
+  (|gadd_assoc-1| NIL 4001532940 ("" (POSTPONE) NIL NIL) NIL SHOSTAK))
+ (|gadd_zero| 0
+  (|gadd_zero-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gadd_neg| 0
+  (|gadd_neg-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gsub_def| 0
+  (|gsub_def-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gmul_comm| 0
+  (|gmul_comm-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gmul_assoc| 0
+  (|gmul_assoc-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gmul_one| 0
+  (|gmul_one-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gmul_zero| 0
+  (|gmul_zero-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gmul_distrib| 0
+  (|gmul_distrib-1| NIL 4001534975
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL
+   SHOSTAK))
+ (|gi_squared| 0
+  (|gi_squared-1| NIL 4001534975
+   ("" (THEN (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL NIL) NIL SHOSTAK))
+ (|gmul_eq_zero| 0
+  (|gmul_eq_zero-1| NIL 4001534975
+   (""
+    (THEN (SKEEP) (EXPAND "gzero")
+     (SPREAD (SPLIT)
+      ((THEN (FLATTEN) (EXPAND "*" -1) (DECOMPOSE-EQUALITY -1) (SIMPLIFY)
+        (FLATTEN)
+        (SPREAD
+         (CASE
+             "(z`re*z`re + z`im*z`im) * w`re = z`re*(z`re * w`re - z`im * w`im) + z`im*(z`im * w`re + z`re * w`im)")
+         ((THEN (REPLACE -2 -1) (REPLACE -3 -1) (ASSERT)
+           (SPREAD
+            (CASE
+                "(z`re*z`re + z`im*z`im) * w`im = z`re*(z`im * w`re + z`re * w`im) - z`im*(z`re * w`re - z`im * w`im)")
+            ((THEN (REPLACE -3 -1) (REPLACE -4 -1) (ASSERT) (HIDE -3 -4)
+              (LEMMA "zero_times3" ("x" "z`re*z`re + z`im*z`im" "y" "w`re"))
+              (LEMMA "zero_times3" ("x" "z`re*z`re + z`im*z`im" "y" "w`im"))
+              (ASSERT)
+              (SPREAD (CASE "z`re*z`re + z`im*z`im = 0")
+               ((SPREAD (CASE "z`re*z`re >= 0 AND z`im*z`im >= 0")
+                 ((THEN (FLATTEN) (LEMMA "zero_times3" ("x" "z`re" "y" "z`re"))
+                   (LEMMA "zero_times3" ("x" "z`im" "y" "z`im")) (ASSERT)
+                   (DECOMPOSE-EQUALITY 1) (ASSERT))
+                  (THEN (HIDE-ALL-BUT 1)
+                   (SPREAD (SPLIT)
+                    ((THEN (LEMMA "pos_times_ge" ("x" "z`re" "y" "z`re"))
+                      (GRIND))
+                     (THEN (LEMMA "pos_times_ge" ("x" "z`im" "y" "z`im"))
+                      (GRIND)))))))
+                (THEN (ASSERT) (DECOMPOSE-EQUALITY 3) (ASSERT)))))
+             (THEN (HIDE-ALL-BUT 1) (GRIND-REALS)))))
+          (THEN (HIDE-ALL-BUT 1) (GRIND-REALS)))))
+       (THEN (SPLIT -1) (REPLACE -1) (GRIND)))))
+    NIL NIL)
+   NIL SHOSTAK))
+ (|gmul_cancel| 0
+  (|gmul_cancel-1| NIL 4001559022
+   (""
+    (THEN (SKEEP)
+     (SPREAD (CASE "z * (w - u) = gzero")
+      ((THEN (LEMMA "gmul_eq_zero" ("z" "z" "w" "w - u")) (ASSERT)
+        (EXPAND "-" -1) (EXPAND "gzero" -1) (DECOMPOSE-EQUALITY -1) (FLATTEN)
+        (APPLY-EXTENSIONALITY 2 :HIDE? T) (ASSERT))
+       (THEN (HIDE 2) (DECOMPOSE-EQUALITY -2) (FLATTEN) (EXPAND "*")
+        (EXPAND "-") (EXPAND "gzero") (APPLY-EXTENSIONALITY 1 :HIDE? T)
+        (GROUND)))))
+    NIL)
+   NIL SHOSTAK))
+ (|norm_TCC1| 0
+  (|norm_TCC1-0| "" 4001530140 ("" (SUBTYPE-TCC) NIL NIL) NIL SHOSTAK
+   (|norm| SUBTYPE "z`re * z`re + z`im * z`im" "nat" (95 18 95 43)))
+  (|norm_TCC1-1| NIL 4001530140 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|norm| SUBTYPE "z`re * z`re + z`im * z`im" "nat" (95 18 95 43))))
+ (|conj_conj| 0
+  (|conj_conj-1| NIL 4001559022
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL) NIL
+   SHOSTAK))
+ (|conj_mult| 0
+  (|conj_mult-1| NIL 4001559022
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL) NIL
+   SHOSTAK))
+ (|mult_conj| 0
+  (|mult_conj-1| NIL 4001559022
+   ("" (THEN (SKEEP) (APPLY-EXTENSIONALITY :HIDE? T) (GRIND)) NIL) NIL
+   SHOSTAK))
+ (|norm_zero| 0
+  (|norm_zero-1| NIL 4001559022
+   (""
+    (THEN (SKEEP) (EXPAND "norm")
+     (SPREAD (SPLIT)
+      ((THEN (FLATTEN) (LEMMA "pos_times_ge" ("x" "z`re" "y" "z`re"))
+        (LEMMA "pos_times_ge" ("x" "z`im" "y" "z`im"))
+        (LEMMA "zero_times3" ("x" "z`re" "y" "z`re"))
+        (LEMMA "zero_times3" ("x" "z`im" "y" "z`im")) (EXPAND "gzero")
+        (APPLY-EXTENSIONALITY 1 :HIDE? T) (GRIND))
+       (THEN (FLATTEN) (REPLACE -1) (EXPAND "gzero") (ASSERT)))))
+    NIL)
+   NIL SHOSTAK))
+ (|norm_pos| 0
+  (|norm_pos-1| NIL 4001559022
+   (""
+    (THEN (SKEEP) (TYPEPRED "nb") (TYPEPRED "norm(nb)")
+     (LEMMA "norm_zero" ("z" "nb")) (ASSERT))
+    NIL)
+   NIL SHOSTAK))
+ (|norm_one| 0
+  (|norm_one-1| NIL 4001559022
+   ("" (THEN (EXPAND "norm") (EXPAND "gone") (ASSERT)) NIL) NIL SHOSTAK))
+ (|norm_conj| 0
+  (|norm_conj-1| NIL 4001559022
+   ("" (THEN (SKEEP) (EXPAND "norm") (EXPAND "conj") (ASSERT)) NIL) NIL
+   SHOSTAK))
+ (|norm_neg| 0
+  (|norm_neg-1| NIL 4001559022
+   ("" (THEN (SKEEP) (EXPAND "norm") (EXPAND "-") (ASSERT)) NIL) NIL SHOSTAK))
+ (|norm_mult| 0
+  (|norm_mult-1| NIL 4001559022
+   ("" (THEN (SKEEP) (EXPAND "norm") (EXPAND "*") (ASSERT) (GRIND-REALS)) NIL)
+   NIL SHOSTAK))
+ (|gquot_TCC1| 0
+  (|gquot_TCC1-2| "" 4001530150
+   ("" (SKEEP)
+    (("" (LEMMA "norm_pos") (("" (INST -1 "nb") (("" (ASSERT) NIL NIL)) NIL))
+      NIL))
+    NIL)
+   NIL SHOSTAK (|gquot| SUBTYPE "n" "nznum" (258 55 258 56)))
+  (|gquot_TCC1-1| NIL 4001530140 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|gquot| SUBTYPE "n" "nznum" (258 55 258 56))))
+ (|ggcd_TCC1| 0
+  (|ggcd_TCC1-0| "" 4001530141 ("" (SUBTYPE-TCC) NIL NIL) NIL SHOSTAK
+   (|ggcd| SUBTYPE "b" "nzgint" (301 25 301 26)))
+  (|ggcd_TCC1-1| NIL 4001530140 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|ggcd| SUBTYPE "b" "nzgint" (301 25 301 26))))
+ (|ggcd_TCC2| 0
+  (|ggcd_TCC2-2| "" 4001530155
+   ("" (SKEEP)
+    (("" (LEMMA "grem_norm_lt") (("" (INST -1 "a" "b") NIL NIL)) NIL)) NIL)
+   NIL SHOSTAK
+   (|ggcd| TERMINATION "ggcd(b, grem(a, b))" #A((3) BASE-CHAR . "NIL")
+    (301 9 301 28)))
+  (|ggcd_TCC2-1| NIL 4001530140 ("" (TERMINATION-TCC) NIL NIL) NIL NIL
+   (|ggcd| TERMINATION "ggcd(b, grem(a, b))" #A((3) BASE-CHAR . "NIL")
+    (301 9 301 28)))))
+

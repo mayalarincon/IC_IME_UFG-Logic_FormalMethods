@@ -1,0 +1,344 @@
+%% ===================================================================
+%% gaussian_gcd.pvs
+%%
+%% PVS specification of the greatest common divisor over the
+%% Gaussian integers  Z[i] = { x + y*i | x, y in Z }.
+%%
+%% Z[i] is a Euclidean domain with respect to the norm
+%%     N(x + y*i) = x^2 + y^2 .
+%% As in gcd_predicate.pvs, the gcd is specified relationally by a
+%% ternary predicate gcd?(a, b, d), independently of any algorithm.
+%% Since a gcd in Z[i] is unique only up to multiplication by a unit
+%% (1, -1, i, -i), the predicate requires d to be the *normalised*
+%% associate (d = 0, or Re d > 0 and Im d >= 0); with this
+%% normalisation the gcd is unique (§7).
+%%
+%% Euclidean division rounds the exact quotient a/b = a*conj(b)/N(b)
+%% componentwise to the nearest integer, which yields a remainder r
+%% with 2*N(r) <= N(b) < 2*N(b).  The Euclidean algorithm is a
+%% recursive function terminating on N(b); its correctness is stated
+%% against the relational specification.
+%%
+%% Contents
+%%   §1  Gaussian integers: carrier, constants, ring operations
+%%   §2  Ring laws
+%%   §3  Conjugate and norm
+%%   §4  Divisibility
+%%   §5  Units and associates
+%%   §6  Normal (canonical) associates
+%%   §7  Ternary gcd predicate and its basic properties
+%%   §8  Euclidean division with nearest-integer rounding
+%%   §9  Euclidean reduction
+%%   §10 Euclidean algorithm and its correctness
+%%   §11 Bézout's identity and existence
+%% ===================================================================
+
+gaussian_gcd : THEORY
+BEGIN
+
+  %% -----------------------------------------------------------------
+  %% Section 1.  Gaussian integers
+  %% -----------------------------------------------------------------
+
+  %% x + y*i is represented by the record (# re := x, im := y #).
+  gint : TYPE = [# re : int, im : int #]
+
+  gzero : gint = (# re := 0, im := 0 #)
+  gone  : gint = (# re := 1, im := 0 #)
+  gi    : gint = (# re := 0, im := 1 #)     % the imaginary unit i
+
+  nzgint : TYPE = {z : gint | z /= gzero}
+
+  a, b, c, d, e, q, r, u, w, x, y, z : VAR gint
+  nb                                 : VAR nzgint
+  t                                  : VAR rational ;
+
+  +(z, w) : gint = (# re := z`re + w`re, im := z`im + w`im #) ;
+  -(z)    : gint = (# re := - z`re,      im := - z`im       #) ;
+  -(z, w) : gint = (# re := z`re - w`re, im := z`im - w`im #) ;
+
+  %% (x1 + y1 i)(x2 + y2 i) = (x1 x2 - y1 y2) + (x1 y2 + y1 x2) i
+  *(z, w) : gint = (# re := z`re * w`re - z`im * w`im,
+                      im := z`re * w`im + z`im * w`re #)
+
+  %% -----------------------------------------------------------------
+  %% Section 2.  Ring laws  (Z[i] is a commutative ring with unity)
+  %% -----------------------------------------------------------------
+
+  gadd_comm    : LEMMA z + w = w + z
+  gadd_assoc   : LEMMA (z + w) + u = z + (w + u)
+  gadd_zero    : LEMMA z + gzero = z
+  gadd_neg     : LEMMA z + (- z) = gzero
+  gsub_def     : LEMMA z - w = z + (- w)
+
+  gmul_comm    : LEMMA z * w = w * z
+  gmul_assoc   : LEMMA (z * w) * u = z * (w * u)
+  gmul_one     : LEMMA z * gone = z
+  gmul_zero    : LEMMA z * gzero = gzero
+  gmul_distrib : LEMMA z * (w + u) = z * w + z * u
+  gi_squared   : LEMMA gi * gi = - gone
+
+  %% Z[i] is an integral domain.
+  gmul_eq_zero : LEMMA z * w = gzero IFF (z = gzero OR w = gzero)
+
+  %% Cancellation, a consequence of the integral-domain property.
+  gmul_cancel  : LEMMA
+    z /= gzero AND z * w = z * u IMPLIES w = u
+
+  %% -----------------------------------------------------------------
+  %% Section 3.  Conjugate and norm
+  %% -----------------------------------------------------------------
+
+  conj(z) : gint = (# re := z`re, im := - z`im #)
+
+  %% N(x + y i) = x^2 + y^2
+  norm(z) : nat = z`re * z`re + z`im * z`im
+
+  conj_conj    : LEMMA conj(conj(z)) = z
+  conj_mult    : LEMMA conj(z * w) = conj(z) * conj(w)
+  mult_conj    : LEMMA z * conj(z) = (# re := norm(z), im := 0 #)
+
+  norm_zero    : LEMMA norm(z) = 0 IFF z = gzero
+  norm_pos     : LEMMA norm(nb) > 0
+  norm_one     : LEMMA norm(gone) = 1
+  norm_conj    : LEMMA norm(conj(z)) = norm(z)
+  norm_neg     : LEMMA norm(- z) = norm(z)
+
+  %% The norm is multiplicative:  N(zw) = N(z) N(w).
+  norm_mult    : LEMMA norm(z * w) = norm(z) * norm(w)
+
+  %% -----------------------------------------------------------------
+  %% Section 4.  Divisibility in Z[i]
+  %% -----------------------------------------------------------------
+
+  %% d | z  iff  z = k * d for some Gaussian integer k.
+  divides(d, z) : bool = EXISTS (k : gint) : z = k * d
+
+  div_refl       : CONJECTURE divides(z, z)
+  div_zero_right : CONJECTURE divides(d, gzero)
+  div_zero_left  : CONJECTURE divides(gzero, z) IFF z = gzero
+  div_one        : CONJECTURE divides(gone, z)
+  div_trans      : CONJECTURE
+    divides(a, b) AND divides(b, c) IMPLIES divides(a, c)
+  div_mult       : CONJECTURE divides(d, z) IMPLIES divides(d, w * z)
+
+  %% d divides every Z[i]-linear combination of a and b.
+  div_linear     : CONJECTURE
+    divides(d, a) AND divides(d, b) IMPLIES
+      FORALL (x, y : gint) : divides(d, x * a + y * b)
+
+  %% Divisibility is reflected by the norm (in the integers).
+  div_norm       : CONJECTURE
+    divides(d, z) IMPLIES divides(norm(d), norm(z))
+
+  %% A nonzero multiple has norm at least that of the divisor.
+  div_norm_le    : CONJECTURE
+    divides(d, nb) IMPLIES norm(d) <= norm(nb)
+
+  %% -----------------------------------------------------------------
+  %% Section 5.  Units and associates
+  %% -----------------------------------------------------------------
+
+  unit?(u) : bool = divides(u, gone)
+
+  %% u is a unit iff N(u) = 1 iff u is one of 1, -1, i, -i.
+  unit_norm  : CONJECTURE unit?(u) IFF norm(u) = 1
+  unit_enum  : CONJECTURE
+    unit?(u) IFF (u = gone OR u = - gone OR u = gi OR u = - gi)
+
+  %% z and w are associates iff they differ by a unit factor.
+  assoc?(z, w) : bool = EXISTS (u : gint) : unit?(u) AND w = u * z
+
+  assoc_refl  : CONJECTURE assoc?(z, z)
+  assoc_symm  : CONJECTURE assoc?(z, w) IMPLIES assoc?(w, z)
+  assoc_trans : CONJECTURE
+    assoc?(z, w) AND assoc?(w, u) IMPLIES assoc?(z, u)
+
+  %% Mutual divisibility characterises associates (cf. div_antisymm).
+  assoc_div   : CONJECTURE
+    assoc?(z, w) IFF (divides(z, w) AND divides(w, z))
+
+  assoc_norm  : CONJECTURE assoc?(z, w) IMPLIES norm(z) = norm(w)
+
+  %% -----------------------------------------------------------------
+  %% Section 6.  Normal associates
+  %% -----------------------------------------------------------------
+
+  %%  Every nonzero z has exactly one associate in the "first
+  %%  quadrant"  { x + y i | x > 0, y >= 0 }.  This plays the role
+  %%  of the condition d >= 0 in the integer gcd predicate.
+
+  normal?(z) : bool = z = gzero OR (z`re > 0 AND z`im >= 0)
+
+  %% Rotate z into the first quadrant by multiplying by a unit.
+  normalize(z) : gint =
+    IF z = gzero                    THEN gzero
+    ELSIF z`re >  0 AND z`im >= 0   THEN z                                 %  1 * z
+    ELSIF z`re <= 0 AND z`im >  0   THEN (# re :=   z`im, im := - z`re #)  % -i * z
+    ELSIF z`re <  0 AND z`im <= 0   THEN (# re := - z`re, im := - z`im #)  % -1 * z
+    ELSE                                 (# re := - z`im, im :=   z`re #)  %  i * z
+    ENDIF
+
+  normalize_normal : CONJECTURE normal?(normalize(z))
+  normalize_assoc  : CONJECTURE assoc?(z, normalize(z))
+  normalize_id     : CONJECTURE normal?(z) IMPLIES normalize(z) = z
+
+  %% Two normal associates are equal.
+  normal_assoc_eq  : CONJECTURE
+    normal?(z) AND normal?(w) AND assoc?(z, w) IMPLIES z = w
+
+  %% -----------------------------------------------------------------
+  %% Section 7.  Ternary gcd predicate
+  %% -----------------------------------------------------------------
+
+  %%  gcd?(a, b, d) holds when d is THE (normalised) gcd of a and b:
+  %%
+  %%    (i)   normal?(d)                     normalisation (unique rep.)
+  %%    (ii)  d | a                     \
+  %%    (iii) d | b                      }   d is a common divisor
+  %%    (iv)  for all e: e | a and e | b  ->  e | d      maximality
+
+  gcd?(a, b, d) : bool =
+    normal?(d)
+    AND divides(d, a)
+    AND divides(d, b)
+    AND FORALL (e : gint) :
+          divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
+
+  gcd_normal   : CONJECTURE gcd?(a, b, d) IMPLIES normal?(d)
+  gcd_div_a    : CONJECTURE gcd?(a, b, d) IMPLIES divides(d, a)
+  gcd_div_b    : CONJECTURE gcd?(a, b, d) IMPLIES divides(d, b)
+  gcd_greatest : CONJECTURE
+    gcd?(a, b, d) AND divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
+
+  %% Maximality in terms of the norm.
+  gcd_greatest_norm : CONJECTURE
+    gcd?(a, b, d) AND d /= gzero AND divides(e, a) AND divides(e, b)
+    IMPLIES norm(e) <= norm(d)
+
+  %% Uniqueness: two gcds are associates (assoc_div), and both are
+  %% normal, hence equal (normal_assoc_eq).
+  gcd_unique   : CONJECTURE
+    gcd?(a, b, d) AND gcd?(a, b, e) IMPLIES d = e
+
+  gcd_symm     : CONJECTURE gcd?(a, b, d) IFF gcd?(b, a, d)
+
+  %% Base cases.
+  gcd_zero_right : CONJECTURE gcd?(a, gzero, d) IFF d = normalize(a)
+  gcd_zero_left  : CONJECTURE gcd?(gzero, b, d) IFF d = normalize(b)
+  gcd_both_zero  : CONJECTURE gcd?(gzero, gzero, d) IFF d = gzero
+  gcd_self       : CONJECTURE gcd?(a, a, d) IFF d = normalize(a)
+  gcd_one_right  : CONJECTURE gcd?(a, gone, gone)
+
+  %% Invariance of the gcd under associates of the arguments.
+  gcd_assoc_arg  : CONJECTURE
+    assoc?(b, c) IMPLIES (gcd?(a, b, d) IFF gcd?(a, c, d))
+
+  %% -----------------------------------------------------------------
+  %% Section 8.  Euclidean division
+  %% -----------------------------------------------------------------
+
+  %%  For b /= 0 the exact quotient is
+  %%        a / b = a * conj(b) / N(b)        (a rational complex number).
+  %%  Rounding both coordinates to the nearest integer gives q with
+  %%        |Re(a/b - q)| <= 1/2,  |Im(a/b - q)| <= 1/2,
+  %%  so the remainder r = a - q*b = (a/b - q) * b satisfies
+  %%        N(r) = |a/b - q|^2 * N(b) <= (1/4 + 1/4) N(b) = N(b)/2.
+
+  %% Nearest integer (ties rounded up).
+  nearest(t) : int = floor(t + 1/2)
+
+  nearest_bounds : CONJECTURE
+    t - 1/2 < nearest(t) AND nearest(t) <= t + 1/2
+
+  nearest_err    : CONJECTURE abs(t - nearest(t)) <= 1/2
+
+  gquot(a, nb) : gint =
+    LET p = a * conj(nb), n = norm(nb) IN
+      (# re := nearest(p`re / n), im := nearest(p`im / n) #)
+
+  grem(a, nb) : gint = a - gquot(a, nb) * nb
+
+  %% Division identity.
+  gdiv_eq      : CONJECTURE a = gquot(a, nb) * nb + grem(a, nb)
+
+  %% Remainder bound: the Euclidean property of the norm.
+  grem_norm_le : CONJECTURE 2 * norm(grem(a, nb)) <= norm(nb)
+  grem_norm_lt : CONJECTURE norm(grem(a, nb)) < norm(nb)
+
+  %% Z[i] is a Euclidean domain: such q, r always exist.
+  euclidean_division : CONJECTURE
+    EXISTS (q, r : gint) : a = q * nb + r AND norm(r) < norm(nb)
+
+  %% -----------------------------------------------------------------
+  %% Section 9.  Euclidean reduction
+  %% -----------------------------------------------------------------
+
+  %%  {common divisors of (a, b)} = {common divisors of (b, r)}
+  %%  whenever a = q*b + r, hence both pairs have the same gcd.
+
+  common_div_reduction : CONJECTURE
+    a = q * b + r IMPLIES
+      (divides(e, a) AND divides(e, b) IFF divides(e, b) AND divides(e, r))
+
+  euclidean_reduction_qr : CONJECTURE
+    a = q * b + r IMPLIES (gcd?(a, b, d) IFF gcd?(b, r, d))
+
+  euclidean_reduction : CONJECTURE
+    gcd?(a, nb, d) IFF gcd?(nb, grem(a, nb), d)
+
+  %% -----------------------------------------------------------------
+  %% Section 10.  Euclidean algorithm
+  %% -----------------------------------------------------------------
+
+  %%  ggcd(a, 0) = normalize(a)
+  %%  ggcd(a, b) = ggcd(b, a rem b)        (b /= 0)
+  %%
+  %%  Termination: N(a rem b) < N(b)  (grem_norm_lt).
+
+  ggcd(a, b) : RECURSIVE gint =
+    IF b = gzero THEN normalize(a)
+    ELSE ggcd(b, grem(a, b))
+    ENDIF
+  MEASURE norm(b)
+
+  %% Unfolding equations.
+  ggcd_zero  : CONJECTURE ggcd(a, gzero) = normalize(a)
+  ggcd_step  : CONJECTURE ggcd(a, nb) = ggcd(nb, grem(a, nb))
+
+  %% Soundness: the algorithm computes a gcd.
+  ggcd_sound    : CONJECTURE gcd?(a, b, ggcd(a, b))
+
+  %% Correctness: the algorithm computes exactly THE gcd.
+  ggcd_correct  : CONJECTURE gcd?(a, b, d) IFF ggcd(a, b) = d
+
+  %% Derived properties of the algorithm.
+  ggcd_normal   : CONJECTURE normal?(ggcd(a, b))
+  ggcd_symm     : CONJECTURE ggcd(a, b) = ggcd(b, a)
+  ggcd_div_a    : CONJECTURE divides(ggcd(a, b), a)
+  ggcd_div_b    : CONJECTURE divides(ggcd(a, b), b)
+
+  %% -----------------------------------------------------------------
+  %% Section 11.  Existence and Bézout's identity
+  %% -----------------------------------------------------------------
+
+  %% Every pair of Gaussian integers has a (unique) gcd.
+  gcd_exists : CONJECTURE EXISTS (d : gint) : gcd?(a, b, d)
+
+  %% Bézout: the gcd is a Z[i]-linear combination of a and b.
+  %% Proof by measure induction on norm(b), using euclidean_reduction
+  %% and gdiv_eq, exactly as in gcd_predicate.bezout.
+  bezout : CONJECTURE
+    gcd?(a, b, d) IMPLIES EXISTS (x, y : gint) : a * x + b * y = d
+
+  %% Coprimality.
+  coprime?(a, b) : bool = gcd?(a, b, gone)
+
+  coprime_bezout : CONJECTURE
+    coprime?(a, b) IFF EXISTS (x, y : gint) : a * x + b * y = gone
+
+  %% Euclid's lemma in Z[i].
+  euclid_lemma : CONJECTURE
+    coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
+
+END gaussian_gcd

@@ -223,7 +223,11 @@ BEGIN
      b /= 0 IMPLIES
        (gcd?(a, b, d) IFF gcd?(b, rem(abs(b))(a), d))
 
-
+%%---------------------------------------------------------
+%%               Euclidean algorithm on integers  
+%% Implemented as a recursive function based on Euclidean
+%% reduction.
+%%---------------------------------------------------------
 f_gcd(i : int, (j:int | NOT ( i = 0 AND j = 0) ) )  : RECURSIVE posnat = 
 IF (i = 0 OR j = 0) THEN abs(i+j)
 ELSIF abs(i) >= abs(j) THEN f_gcd(rem(abs(j))(i), j)
@@ -231,85 +235,83 @@ ELSE f_gcd(rem(abs(i))(j), i)
 ENDIF
 MEASURE abs(i) + abs(j)
 
-f_gcd_is_correct  :  CONJECTURE 
- FORALL(i : int, (j:int | NOT ( i = 0 AND j = 0) )) : gcd?(i,j,d)  IFF f_gcd(i,j) = d
+f_gcd_is_correct  :  LEMMA 
+ FORALL(i : int, (j:int | NOT ( i = 0 AND j = 0) )) : 
+      gcd?(i,j,d)  IFF f_gcd(i,j) = d
 
+ %% -----------------------------------------------------------------
+ %% Section 8.  Bézout's identity
+ %% -----------------------------------------------------------------
 
+ %%  For every a, b : int and d with gcd?(a, b, d), there exist
+ %%  Bézout coefficients x, y : int such that
+ %%
+ %%          a * x + b * y = d.
+ %%
+ %%  Proof by strong induction on |b|, using euclidean_reduction.
+ %%
+ %%  Base (b = 0):  d = |a|.
+ %%    If a ≥ 0: take x = 1, y = 0.  Then a*1 + 0*0 = a = d.
+ %%    If a < 0: take x = -1, y = 0. Then a*(-1) + 0*0 = -a = d.
+ %%
+ %%  Step (b ≠ 0):
+ %%    Let r = rem(a)(b).  By euclidean_reduction, gcd?(b, r, d).
+ %%    Induction hypothesis gives x', y' with  b*x' + r*y' = d.
+ %%    Since r = a - (a/b)*b:
+ %%      d = b*x' + (a - (a/b)*b)*y'
+ %%        = a*y' + b*(x' - (a/b)*y').
+ %%    Take x = y', y = x' - (a/b)*y'.
 
+ bezout : LEMMA
+   gcd?(a, b, d) IMPLIES
+     EXISTS (x, y : int) : a * x + b * y = d
 
-% %   %% -----------------------------------------------------------------
-% %   %% Section 8.  Bézout's identity
-% %   %% -----------------------------------------------------------------
+ %% -----------------------------------------------------------------
+ %% Section 9.  Coprimality
+ %% -----------------------------------------------------------------
 
-% %   %%  For every a, b : int and d with gcd?(a, b, d), there exist
-% %   %%  Bézout coefficients x, y : int such that
-% %   %%
-% %   %%          a * x + b * y = d.
-% %   %%
-% %   %%  Proof by strong induction on |b|, using euclidean_reduction.
-% %   %%
-% %   %%  Base (b = 0):  d = |a|.
-% %   %%    If a ≥ 0: take x = 1, y = 0.  Then a*1 + 0*0 = a = d.
-% %   %%    If a < 0: take x = -1, y = 0. Then a*(-1) + 0*0 = -a = d.
-% %   %%
-% %   %%  Step (b ≠ 0):
-% %   %%    Let r = rem(a, b).  By euclidean_reduction, gcd?(b, r, d).
-% %   %%    Induction hypothesis gives x', y' with  b*x' + r*y' = d.
-% %   %%    Since r = a - (a/b)*b:
-% %   %%      d = b*x' + (a - (a/b)*b)*y'
-% %   %%        = a*y' + b*(x' - (a/b)*y').
-% %   %%    Take x = y', y = x' - (a/b)*y'.
+ coprime?(a, b) : bool = gcd?(a, b, 1)
+   %% a and b are coprime iff their gcd is 1.
 
-% %   bezout : CONJECTURE
-% %     gcd?(a, b, d) IMPLIES
-% %       EXISTS (x, y : int) : a * x + b * y = d
+ coprime_symm : LEMMA
+   coprime?(a, b) IFF coprime?(b, a)
 
-% %   %% -----------------------------------------------------------------
-% %   %% Section 9.  Coprimality
-% %   %% -----------------------------------------------------------------
+ coprime_one : LEMMA coprime?(a, 1) AND coprime?(1, b)
 
-% %   coprime?(a, b) : bool = gcd?(a, b, 1)
-% %     %% a and b are coprime iff their gcd is 1.
+ %% Euclid's lemma: if a | bc and gcd(a,b) = 1 then a | c.
+ euclid_lemma : LEMMA
+   coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
+   %% Proof: Bézout gives x, y with a*x + b*y = 1.
+   %%        Multiply by c: a*(cx) + b*(cy) = c.
+   %%        a | a*(cx) trivially; a | bc gives a | (bc)*y.
+   %%        Hence a | c.
 
-% %   coprime_symm : CONJECTURE
-% %     coprime?(a, b) IFF coprime?(b, a)
+ %% Dividing through by gcd yields coprime factors.
+ gcd_coprime_quotients : LEMMA
+   gcd?(a, b, d) AND d > 0 IMPLIES
+     coprime?(a / d, b / d)
+   %% Proof: let a = d*a', b = d*b'.  Any common divisor e of a', b'
+   %%        satisfies d*e | a and d*e | b, hence d*e | d, so e | 1.
 
-% %   coprime_one : CONJECTURE coprime?(a, 1) AND coprime?(1, b)
+ %% Coprime characterisation via Bézout.
+ coprime_bezout : LEMMA
+    coprime?(a, b) IFF EXISTS (x, y : int) : a * x + b * y = 1
+   %% (⇒) Bézout applied to gcd?(a,b,1).
+   %% (⇐) Any common divisor d of a and b divides a*x + b*y = 1,
+   %%     so |d| ≤ 1; combined with d ≥ 0 from gcd? gives d = 1.
 
-% %   %% Euclid's lemma: if a | bc and gcd(a,b) = 1 then a | c.
-% %   euclid_lemma : CONJECTURE
-% %     coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
-% %     %% Proof: Bézout gives x, y with a*x + b*y = 1.
-% %     %%        Multiply by c: a*(cx) + b*(cy) = c.
-% %     %%        a | a*(cx) trivially; a | bc gives a | (bc)*y.
-% %     %%        Hence a | c.
+ %% -----------------------------------------------------------------
+ %% Section 10.  Existence
+ %% -----------------------------------------------------------------
 
-% %   %% Dividing through by gcd yields coprime factors.
-% %   gcd_coprime_quotients : CONJECTURE
-% %     gcd?(a, b, d) AND d > 0 IMPLIES
-% %       coprime?(a / d, b / d)
-% %     %% Proof: let a = d*a', b = d*b'.  Any common divisor e of a', b'
-% %     %%        satisfies d*e | a and d*e | b, hence d*e | d, so e | 1.
+ %%  For every a, b : int there exists d : int with gcd?(a, b, d).
+ %%
+ %%  Proof: by strong induction on |b| (well-founded on nat) using
+ %%  euclidean_reduction.  The quantity |rem(a, b)| < |b| for b ≠ 0,
+ %%  so the recursion terminates at the base case b = 0, where
+ %%  d = |a| satisfies gcd?(a, 0, |a|) by gcd_zero_right.
 
-% %   %% Coprime characterisation via Bézout.
-% %   % coprime_bezout : CONJECTURE
-% %   %   coprime?(a, b) IFF EXISTS (x, y : int) : a * x + b * y = 1
-% %     %% (⇒) Bézout applied to gcd?(a,b,1).
-% %     %% (⇐) Any common divisor d of a and b divides a*x + b*y = 1,
-% %     %%     so |d| ≤ 1; combined with d ≥ 0 from gcd? gives d = 1.
-
-% %   %% -----------------------------------------------------------------
-% %   %% Section 10.  Existence
-% %   %% -----------------------------------------------------------------
-
-% %   %%  For every a, b : int there exists d : int with gcd?(a, b, d).
-% %   %%
-% %   %%  Proof: by strong induction on |b| (well-founded on nat) using
-% %   %%  euclidean_reduction.  The quantity |rem(a, b)| < |b| for b ≠ 0,
-% %   %%  so the recursion terminates at the base case b = 0, where
-% %   %%  d = |a| satisfies gcd?(a, 0, |a|) by gcd_zero_right.
-
-% %   % gcd_exists : CONJECTURE
-% %   %   EXISTS (d : int) : gcd?(a, b, d)
+  gcd_exists : LEMMA
+    EXISTS (d : int) : gcd?(a, b, d)
 
 END gcd_predicate
