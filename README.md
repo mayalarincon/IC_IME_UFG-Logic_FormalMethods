@@ -1,16 +1,18 @@
 # IC_IME_UFG-Logic_FormalMethods
 
-Este repositório contém material relacionado com o treino na área de pesquisa em lógica, semântica e teoria da Computação.
+Este repositório contém material relacionado ao treinamento na área de pesquisa em lógica, semântica e teoria da computação.
 
-O arquivo ([gcd_predicate.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gcd_predicate.pvs)) contém a especificação de definições e propriedades de um predicado <i>gcd</i> sobre o conjunto dos números inteiros. 
+O arquivo ([gcd_predicate.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gcd_predicate.pvs)) contém a especificação das definições e propriedades do predicado <i>gcd</i> sobre o conjunto dos números inteiros. 
 
 O arquivo ([gcd_predicate.prf](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gcd_predicate.prf)) contém a formalização das provas das propriedades relacionadas ao predicado <i>gcd</i>. 
 
-Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs/), o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Otrossim, é também possível instalação direita do PVS e da livraria [pvslib](https://github.com/nasa/pvslib) da NASA e utilização do PVS da maneira clássica sobre Emacs.
+Os resultados são adaptados aos inteiros gaussianos na teoria do gcd para esta estrutura algébrica. 
 
-Veja alguns tutorias disponíveis através de links na página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
+Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs/), o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Outrossim, é também possível a instalação direta do PVS e da livraria [pvslib](https://github.com/nasa/pvslib) da NASA e a utilização do PVS da maneira clássica sobre Emacs.
 
-Para fundamentos de dedução lógica e relação de técnicas dedutivas implementadas em provadores interactivos de teoremas como PVS, recomenda-se o livro texto  [Applied Logic for Computer Scientists and Mathematicians](https://link.springer.com/book/9783032416490).
+Veja alguns tutoriais disponíveis através de links na página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
+
+Para fundamentos de dedução lógica e relação de técnicas dedutivas implementadas em provadores interactivos de teoremas como PVS, recomenda-se o livro-texto  [Applied Logic for Computer Scientists and Mathematicians](https://link.springer.com/book/9783032416490).
 
 <hr>
 ## Atividades semanais do grupo (semestre 2026.2):
