@@ -6,11 +6,11 @@ O arquivo ([gcd_predicate.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_
 
 O arquivo ([gcd_predicate.prf](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gcd_predicate.prf)) contém a formalização das provas das propriedades relacionadas ao predicado <i>gcd</i>. 
 
-Os resultados são adaptados aos inteiros gaussianos na teoria do gcd para esta estrutura algébrica. 
+Os resultados são adaptados aos inteiros gaussianos na teoria do gcd para esta estrutura algébrica ([gaussian_gcd.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/gaussian_gcd.pvs)). 
 
-Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs/), o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Outrossim, é também possível a instalação direta do PVS e da livraria [pvslib](https://github.com/nasa/pvslib) da NASA e a utilização do PVS da maneira clássica sobre Emacs.
+Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs/), o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Outrossim, é possível a instalação direta do PVS e da livraria [pvslib](https://github.com/nasa/pvslib) da NASA, bem como a utilização do PVS da maneira clássica no Emacs.
 
-Veja alguns tutoriais disponíveis através de links na página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
+Veja alguns tutoriais disponíveis nos links da página do tutorial ["Formal Proofs in PVS"](https://cicm-conference.org/2025/fm-pvs/general.html), realizado durante o CICM 2025.
 
 Para fundamentos de dedução lógica e relação de técnicas dedutivas implementadas em provadores interactivos de teoremas como PVS, recomenda-se o livro-texto  [Applied Logic for Computer Scientists and Mathematicians](https://link.springer.com/book/9783032416490).
 
