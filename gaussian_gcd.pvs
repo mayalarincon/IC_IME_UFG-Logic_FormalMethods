@@ -114,25 +114,25 @@ BEGIN
   %% d | z  iff  z = k * d for some Gaussian integer k.
   divides(d, z) : bool = EXISTS (k : gint) : z = k * d
 
-  div_refl       : CONJECTURE divides(z, z)
-  div_zero_right : CONJECTURE divides(d, gzero)
-  div_zero_left  : CONJECTURE divides(gzero, z) IFF z = gzero
-  div_one        : CONJECTURE divides(gone, z)
-  div_trans      : CONJECTURE
+  div_refl       : LEMMA divides(z, z)
+  div_zero_right : LEMMA divides(d, gzero)
+  div_zero_left  : LEMMA divides(gzero, z) IFF z = gzero
+  div_one        : LEMMA divides(gone, z)
+  div_trans      : LEMMA
     divides(a, b) AND divides(b, c) IMPLIES divides(a, c)
-  div_mult       : CONJECTURE divides(d, z) IMPLIES divides(d, w * z)
+  div_mult       : LEMMA divides(d, z) IMPLIES divides(d, w * z)
 
   %% d divides every Z[i]-linear combination of a and b.
-  div_linear     : CONJECTURE
+  div_linear     : LEMMA
     divides(d, a) AND divides(d, b) IMPLIES
       FORALL (x, y : gint) : divides(d, x * a + y * b)
 
   %% Divisibility is reflected by the norm (in the integers).
-  div_norm       : CONJECTURE
+  div_norm       : LEMMA
     divides(d, z) IMPLIES divides(norm(d), norm(z))
 
   %% A nonzero multiple has norm at least that of the divisor.
-  div_norm_le    : CONJECTURE
+  div_norm_le    : LEMMA
     divides(d, nb) IMPLIES norm(d) <= norm(nb)
 
   %% -----------------------------------------------------------------
@@ -142,23 +142,23 @@ BEGIN
   unit?(u) : bool = divides(u, gone)
 
   %% u is a unit iff N(u) = 1 iff u is one of 1, -1, i, -i.
-  unit_norm  : CONJECTURE unit?(u) IFF norm(u) = 1
-  unit_enum  : CONJECTURE
+  unit_norm  : LEMMA unit?(u) IFF norm(u) = 1
+  unit_enum  : LEMMA
     unit?(u) IFF (u = gone OR u = - gone OR u = gi OR u = - gi)
 
   %% z and w are associates iff they differ by a unit factor.
   assoc?(z, w) : bool = EXISTS (u : gint) : unit?(u) AND w = u * z
 
-  assoc_refl  : CONJECTURE assoc?(z, z)
-  assoc_symm  : CONJECTURE assoc?(z, w) IMPLIES assoc?(w, z)
-  assoc_trans : CONJECTURE
+  assoc_refl  : LEMMA assoc?(z, z)
+  assoc_symm  : LEMMA assoc?(z, w) IMPLIES assoc?(w, z)
+  assoc_trans : LEMMA
     assoc?(z, w) AND assoc?(w, u) IMPLIES assoc?(z, u)
 
   %% Mutual divisibility characterises associates (cf. div_antisymm).
-  assoc_div   : CONJECTURE
+  assoc_div   : LEMMA
     assoc?(z, w) IFF (divides(z, w) AND divides(w, z))
 
-  assoc_norm  : CONJECTURE assoc?(z, w) IMPLIES norm(z) = norm(w)
+  assoc_norm  : LEMMA assoc?(z, w) IMPLIES norm(z) = norm(w)
 
   %% -----------------------------------------------------------------
   %% Section 6.  Normal associates
@@ -179,12 +179,12 @@ BEGIN
     ELSE                                 (# re := - z`im, im :=   z`re #)  %  i * z
     ENDIF
 
-  normalize_normal : CONJECTURE normal?(normalize(z))
-  normalize_assoc  : CONJECTURE assoc?(z, normalize(z))
-  normalize_id     : CONJECTURE normal?(z) IMPLIES normalize(z) = z
+  normalize_normal : LEMMA normal?(normalize(z))
+  normalize_assoc  : LEMMA assoc?(z, normalize(z))
+  normalize_id     : LEMMA normal?(z) IMPLIES normalize(z) = z
 
   %% Two normal associates are equal.
-  normal_assoc_eq  : CONJECTURE
+  normal_assoc_eq  : LEMMA
     normal?(z) AND normal?(w) AND assoc?(z, w) IMPLIES z = w
 
   %% -----------------------------------------------------------------
@@ -205,33 +205,33 @@ BEGIN
     AND FORALL (e : gint) :
           divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
 
-  gcd_normal   : CONJECTURE gcd?(a, b, d) IMPLIES normal?(d)
-  gcd_div_a    : CONJECTURE gcd?(a, b, d) IMPLIES divides(d, a)
-  gcd_div_b    : CONJECTURE gcd?(a, b, d) IMPLIES divides(d, b)
-  gcd_greatest : CONJECTURE
+  gcd_normal   : LEMMA gcd?(a, b, d) IMPLIES normal?(d)
+  gcd_div_a    : LEMMA gcd?(a, b, d) IMPLIES divides(d, a)
+  gcd_div_b    : LEMMA gcd?(a, b, d) IMPLIES divides(d, b)
+  gcd_greatest : LEMMA
     gcd?(a, b, d) AND divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
 
   %% Maximality in terms of the norm.
-  gcd_greatest_norm : CONJECTURE
+  gcd_greatest_norm : LEMMA
     gcd?(a, b, d) AND d /= gzero AND divides(e, a) AND divides(e, b)
     IMPLIES norm(e) <= norm(d)
 
   %% Uniqueness: two gcds are associates (assoc_div), and both are
   %% normal, hence equal (normal_assoc_eq).
-  gcd_unique   : CONJECTURE
+  gcd_unique   : LEMMA
     gcd?(a, b, d) AND gcd?(a, b, e) IMPLIES d = e
 
-  gcd_symm     : CONJECTURE gcd?(a, b, d) IFF gcd?(b, a, d)
+  gcd_symm     : LEMMA gcd?(a, b, d) IFF gcd?(b, a, d)
 
   %% Base cases.
-  gcd_zero_right : CONJECTURE gcd?(a, gzero, d) IFF d = normalize(a)
-  gcd_zero_left  : CONJECTURE gcd?(gzero, b, d) IFF d = normalize(b)
-  gcd_both_zero  : CONJECTURE gcd?(gzero, gzero, d) IFF d = gzero
-  gcd_self       : CONJECTURE gcd?(a, a, d) IFF d = normalize(a)
-  gcd_one_right  : CONJECTURE gcd?(a, gone, gone)
+  gcd_zero_right : LEMMA gcd?(a, gzero, d) IFF d = normalize(a)
+  gcd_zero_left  : LEMMA gcd?(gzero, b, d) IFF d = normalize(b)
+  gcd_both_zero  : LEMMA gcd?(gzero, gzero, d) IFF d = gzero
+  gcd_self       : LEMMA gcd?(a, a, d) IFF d = normalize(a)
+  gcd_one_right  : LEMMA gcd?(a, gone, gone)
 
   %% Invariance of the gcd under associates of the arguments.
-  gcd_assoc_arg  : CONJECTURE
+  gcd_assoc_arg  : LEMMA
     assoc?(b, c) IMPLIES (gcd?(a, b, d) IFF gcd?(a, c, d))
 
   %% -----------------------------------------------------------------
@@ -248,10 +248,10 @@ BEGIN
   %% Nearest integer (ties rounded up).
   nearest(t) : int = floor(t + 1/2)
 
-  nearest_bounds : CONJECTURE
+  nearest_bounds : LEMMA
     t - 1/2 < nearest(t) AND nearest(t) <= t + 1/2
 
-  nearest_err    : CONJECTURE abs(t - nearest(t)) <= 1/2
+  nearest_err    : LEMMA abs(t - nearest(t)) <= 1/2
 
   gquot(a, nb) : gint =
     LET p = a * conj(nb), n = norm(nb) IN
@@ -260,14 +260,14 @@ BEGIN
   grem(a, nb) : gint = a - gquot(a, nb) * nb
 
   %% Division identity.
-  gdiv_eq      : CONJECTURE a = gquot(a, nb) * nb + grem(a, nb)
+  gdiv_eq      : LEMMA a = gquot(a, nb) * nb + grem(a, nb)
 
   %% Remainder bound: the Euclidean property of the norm.
-  grem_norm_le : CONJECTURE 2 * norm(grem(a, nb)) <= norm(nb)
-  grem_norm_lt : CONJECTURE norm(grem(a, nb)) < norm(nb)
+  grem_norm_le : LEMMA 2 * norm(grem(a, nb)) <= norm(nb)
+  grem_norm_lt : LEMMA norm(grem(a, nb)) < norm(nb)
 
   %% Z[i] is a Euclidean domain: such q, r always exist.
-  euclidean_division : CONJECTURE
+  euclidean_division : LEMMA
     EXISTS (q, r : gint) : a = q * nb + r AND norm(r) < norm(nb)
 
   %% -----------------------------------------------------------------
@@ -277,14 +277,14 @@ BEGIN
   %%  {common divisors of (a, b)} = {common divisors of (b, r)}
   %%  whenever a = q*b + r, hence both pairs have the same gcd.
 
-  common_div_reduction : CONJECTURE
+  common_div_reduction : LEMMA
     a = q * b + r IMPLIES
       (divides(e, a) AND divides(e, b) IFF divides(e, b) AND divides(e, r))
 
-  euclidean_reduction_qr : CONJECTURE
+  euclidean_reduction_qr : LEMMA
     a = q * b + r IMPLIES (gcd?(a, b, d) IFF gcd?(b, r, d))
 
-  euclidean_reduction : CONJECTURE
+  euclidean_reduction : LEMMA
     gcd?(a, nb, d) IFF gcd?(nb, grem(a, nb), d)
 
   %% -----------------------------------------------------------------
@@ -303,42 +303,42 @@ BEGIN
   MEASURE norm(b)
 
   %% Unfolding equations.
-  ggcd_zero  : CONJECTURE ggcd(a, gzero) = normalize(a)
-  ggcd_step  : CONJECTURE ggcd(a, nb) = ggcd(nb, grem(a, nb))
+  ggcd_zero  : LEMMA ggcd(a, gzero) = normalize(a)
+  ggcd_step  : LEMMA ggcd(a, nb) = ggcd(nb, grem(a, nb))
 
   %% Soundness: the algorithm computes a gcd.
-  ggcd_sound    : CONJECTURE gcd?(a, b, ggcd(a, b))
+  ggcd_sound    : LEMMA gcd?(a, b, ggcd(a, b))
 
   %% Correctness: the algorithm computes exactly THE gcd.
-  ggcd_correct  : CONJECTURE gcd?(a, b, d) IFF ggcd(a, b) = d
+  ggcd_correct  : LEMMA gcd?(a, b, d) IFF ggcd(a, b) = d
 
   %% Derived properties of the algorithm.
-  ggcd_normal   : CONJECTURE normal?(ggcd(a, b))
-  ggcd_symm     : CONJECTURE ggcd(a, b) = ggcd(b, a)
-  ggcd_div_a    : CONJECTURE divides(ggcd(a, b), a)
-  ggcd_div_b    : CONJECTURE divides(ggcd(a, b), b)
+  ggcd_normal   : LEMMA normal?(ggcd(a, b))
+  ggcd_symm     : LEMMA ggcd(a, b) = ggcd(b, a)
+  ggcd_div_a    : LEMMA divides(ggcd(a, b), a)
+  ggcd_div_b    : LEMMA divides(ggcd(a, b), b)
 
   %% -----------------------------------------------------------------
   %% Section 11.  Existence and Bézout's identity
   %% -----------------------------------------------------------------
 
   %% Every pair of Gaussian integers has a (unique) gcd.
-  gcd_exists : CONJECTURE EXISTS (d : gint) : gcd?(a, b, d)
+  gcd_exists : LEMMA EXISTS (d : gint) : gcd?(a, b, d)
 
   %% Bézout: the gcd is a Z[i]-linear combination of a and b.
   %% Proof by measure induction on norm(b), using euclidean_reduction
   %% and gdiv_eq, exactly as in gcd_predicate.bezout.
-  bezout : CONJECTURE
+  bezout : LEMMA
     gcd?(a, b, d) IMPLIES EXISTS (x, y : gint) : a * x + b * y = d
 
   %% Coprimality.
   coprime?(a, b) : bool = gcd?(a, b, gone)
 
-  coprime_bezout : CONJECTURE
+  coprime_bezout : LEMMA
     coprime?(a, b) IFF EXISTS (x, y : gint) : a * x + b * y = gone
 
   %% Euclid's lemma in Z[i].
-  euclid_lemma : CONJECTURE
+  euclid_lemma : LEMMA
     coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
 
 END gaussian_gcd

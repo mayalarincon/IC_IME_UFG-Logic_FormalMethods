@@ -195,11 +195,11 @@ BEGIN
 
 %   %  The fundamental step of the Euclidean algorithm:
 %   %
-%   %      gcd?(a, b, d)  ↔  gcd?(b, rem(a, b), d)      (b ≠ 0)
+%   %      gcd?(a, b, d)  ↔  gcd?(b, rem(b)(a), d)      (b ≠ 0)
 %   %
 %   %  where  rem(a, b)  is PVS's built-in Euclidean remainder
 %   %  satisfying  a = (a / b) * b + rem(a, b)  and
-%   %              0 ≤ rem(a, b) < |b|  for b ≠ 0.
+%   %              0 ≤ rem(b)(a) < |b|  for b ≠ 0.
 %   %
 %   %  Key invariant:
 %   %    {common divisors of (a, b)} = {common divisors of (b, rem(a,b))}
