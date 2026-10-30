@@ -10,7 +10,8 @@ Os resultados são adaptados aos inteiros gaussianos na teoria do gcd para esta 
 
 Finalmente, os resultados são generalizados, apresentando o algoritmo genérico gcd para Domínios Euclideanos na teoria ([euclidean_gcd.pvs](https://github.com/mayalarincon/IC_IME_UFG-Logic_FormalMethods/blob/main/euclidean_gcd.pvs)).
 
-A teoria "algebra" de de nasa PVS library contém uma formalização do algoritmo de gcd para domínios Euclidianos da qual se obtém via parametrização algoritmos matematicamente verificados corretos para as estruturas de inteiros e inteiros Gaussianos ([reporte](https://arxiv.org/pdf/2404.14920v1)).
+A teoria "algebra" de de nasa PVS library contém uma formalização do algoritmo de gcd para domínios Euclidianos da qual se obtém via parametrização algoritmos matematicamente verificados corretos para as estruturas de inteiros e inteiros Gaussianos ([Formalizing Factorization on Euclidean Domains and
+Abstract Euclidean Algorithms](https://arxiv.org/pdf/2404.14920v1)).
 
 Recomenda-se a instalação da versão 8.1 de [PVS](https://sri-fm.github.io/pvs/), o que pode ser feito através das extensões do vsCode em plataformas Linux.   A instalação da extensão é simplificada via vsCode. Outrossim, é possível a instalação direta do PVS e da livraria [pvslib](https://github.com/nasa/pvslib) da NASA, bem como a utilização do PVS da maneira clássica no Emacs.
 
