@@ -1294,9 +1294,68 @@
      },
      {
       "branch": "",
-      "name": "(GROUND)",
+      "name": "(prop)",
       "type": "proof-command",
-      "rules": []
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(replace -7 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(assert)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "4",
+        "name": "(4)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "4",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
      }
     ]
    }
@@ -7031,13 +7090,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7047,6 +7106,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7076,13 +7148,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7092,6 +7164,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7121,13 +7206,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7137,6 +7222,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7166,13 +7264,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7182,6 +7280,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7211,13 +7322,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7227,6 +7338,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7256,13 +7380,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7272,6 +7396,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7301,13 +7438,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7317,6 +7454,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7346,9 +7496,36 @@
     "rules": [
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(DECOMPOSE-EQUALITY)",
       "type": "proof-command",
-      "rules": []
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
      }
     ]
    }
@@ -7371,6 +7548,12 @@
     "rules": [
      {
       "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
       "name": "(EXPAND \"gzero\")",
       "type": "proof-command",
       "rules": []
@@ -7379,18 +7562,18 @@
       "branch": "",
       "name": "(SPLIT)",
       "type": "proof-command",
-      "rules": []
-     },
-     {
-      "branch": "",
-      "name": "(FLATTEN)",
-      "type": "proof-command",
       "rules": [
        {
         "branch": "1",
         "name": "(1)",
         "type": "proof-branch",
         "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
          {
           "branch": "1",
           "name": "(EXPAND \"*\" -1)",
@@ -7411,13 +7594,13 @@
          },
          {
           "branch": "1",
-          "name": "(CASE    \"(z`re*z`re + z`im*z`im) * w`re = z`re*(z`re * w`re - z`im * w`im) + z`im*(z`im * w`re + z`re * w`im)\")",
+          "name": "(assert)",
           "type": "proof-command",
           "rules": []
          },
          {
           "branch": "1",
-          "name": "(REPLACE -2 -1)",
+          "name": "(CASE \"(z`re*z`re + z`im*z`im) * w`re = z`re*(z`re * w`re - z`im * w`im) + z`im*(z`im * w`re + z`re * w`im)\")",
           "type": "proof-command",
           "rules": [
            {
@@ -7425,6 +7608,12 @@
             "name": "(1.1)",
             "type": "proof-branch",
             "rules": [
+             {
+              "branch": "1.1",
+              "name": "(REPLACE -2 -1)",
+              "type": "proof-command",
+              "rules": []
+             },
              {
               "branch": "1.1",
               "name": "(REPLACE -3 -1)",
@@ -7439,13 +7628,7 @@
              },
              {
               "branch": "1.1",
-              "name": "(CASE    \"(z`re*z`re + z`im*z`im) * w`im = z`re*(z`im * w`re + z`re * w`im) - z`im*(z`re * w`re - z`im * w`im)\")",
-              "type": "proof-command",
-              "rules": []
-             },
-             {
-              "branch": "1.1",
-              "name": "(REPLACE -3 -1)",
+              "name": "(CASE \"(z`re*z`re + z`im*z`im) * w`im = z`re*(z`im * w`re + z`re * w`im) - z`im*(z`re * w`re - z`im * w`im)\")",
               "type": "proof-command",
               "rules": [
                {
@@ -7453,6 +7636,12 @@
                 "name": "(1.1.1)",
                 "type": "proof-branch",
                 "rules": [
+                 {
+                  "branch": "1.1.1",
+                  "name": "(REPLACE -3 -1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
                  {
                   "branch": "1.1.1",
                   "name": "(REPLACE -4 -1)",
@@ -7493,12 +7682,6 @@
                   "branch": "1.1.1",
                   "name": "(CASE \"z`re*z`re + z`im*z`im = 0\")",
                   "type": "proof-command",
-                  "rules": []
-                 },
-                 {
-                  "branch": "1.1.1",
-                  "name": "(CASE \"z`re*z`re >= 0 AND z`im*z`im >= 0\")",
-                  "type": "proof-command",
                   "rules": [
                    {
                     "branch": "1.1.1.1",
@@ -7507,7 +7690,7 @@
                     "rules": [
                      {
                       "branch": "1.1.1.1",
-                      "name": "(FLATTEN)",
+                      "name": "(CASE \"z`re*z`re >= 0 AND z`im*z`im >= 0\")",
                       "type": "proof-command",
                       "rules": [
                        {
@@ -7515,6 +7698,12 @@
                         "name": "(1.1.1.1.1)",
                         "type": "proof-branch",
                         "rules": [
+                         {
+                          "branch": "1.1.1.1.1",
+                          "name": "(FLATTEN)",
+                          "type": "proof-command",
+                          "rules": []
+                         },
                          {
                           "branch": "1.1.1.1.1",
                           "name": "(LEMMA \"zero_times3\" (\"x\" \"z`re\" \"y\" \"z`re\"))",
@@ -7548,13 +7737,13 @@
                         "rules": [
                          {
                           "branch": "1.1.1.1.2",
-                          "name": "(SPLIT)",
+                          "name": "(HIDE-ALL-BUT 1)",
                           "type": "proof-command",
                           "rules": []
                          },
                          {
                           "branch": "1.1.1.1.2",
-                          "name": "(LEMMA \"pos_times_ge\" (\"x\" \"z`re\" \"y\" \"z`re\"))",
+                          "name": "(SPLIT)",
                           "type": "proof-command",
                           "rules": [
                            {
@@ -7562,6 +7751,12 @@
                             "name": "(1.1.1.1.2.1)",
                             "type": "proof-branch",
                             "rules": [
+                             {
+                              "branch": "1.1.1.1.2.1",
+                              "name": "(LEMMA \"pos_times_ge\" (\"x\" \"z`re\" \"y\" \"z`re\"))",
+                              "type": "proof-command",
+                              "rules": []
+                             },
                              {
                               "branch": "1.1.1.1.2.1",
                               "name": "(GRIND)",
@@ -7575,6 +7770,12 @@
                             "name": "(1.1.1.1.2.2)",
                             "type": "proof-branch",
                             "rules": [
+                             {
+                              "branch": "1.1.1.1.2.2",
+                              "name": "(LEMMA \"pos_times_ge\" (\"x\" \"z`im\" \"y\" \"z`im\"))",
+                              "type": "proof-command",
+                              "rules": []
+                             },
                              {
                               "branch": "1.1.1.1.2.2",
                               "name": "(GRIND)",
@@ -7598,6 +7799,12 @@
                     "rules": [
                      {
                       "branch": "1.1.1.2",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.1.1.2",
                       "name": "(DECOMPOSE-EQUALITY 3)",
                       "type": "proof-command",
                       "rules": []
@@ -7613,6 +7820,12 @@
                 "name": "(1.1.2)",
                 "type": "proof-branch",
                 "rules": [
+                 {
+                  "branch": "1.1.2",
+                  "name": "(HIDE-ALL-BUT 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
                  {
                   "branch": "1.1.2",
                   "name": "(GRIND-REALS)",
@@ -7632,19 +7845,32 @@
             "rules": [
              {
               "branch": "1.2",
-              "name": "(GRIND-REALS)",
+              "name": "(HIDE-ALL-BUT 1)",
               "type": "proof-command",
               "rules": []
              },
              {
               "branch": "1.2",
-              "name": "(GRIND)",
+              "name": "(GRIND-REALS)",
               "type": "proof-command",
               "rules": []
              }
             ]
            }
           ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
          }
         ]
        }
@@ -7671,13 +7897,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(CASE \"z * (w - u) = gzero\")",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(LEMMA \"gmul_eq_zero\" (\"z\" \"z\" \"w\" \"w - u\"))",
+      "name": "(CASE \"z * (w - u) = gzero\")",
       "type": "proof-command",
       "rules": [
        {
@@ -7685,6 +7911,12 @@
         "name": "(1)",
         "type": "proof-branch",
         "rules": [
+         {
+          "branch": "1",
+          "name": "(LEMMA \"gmul_eq_zero\" (\"z\" \"z\" \"w\" \"w - u\"))",
+          "type": "proof-command",
+          "rules": []
+         },
          {
           "branch": "1",
           "name": "(ASSERT)",
@@ -7722,6 +7954,12 @@
         "name": "(2)",
         "type": "proof-branch",
         "rules": [
+         {
+          "branch": "2",
+          "name": "(HIDE 2)",
+          "type": "proof-command",
+          "rules": []
+         },
          {
           "branch": "2",
           "name": "(EXPAND \"*\")",
@@ -7771,13 +8009,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7787,6 +8025,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7816,13 +8067,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7832,6 +8083,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7861,13 +8125,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
+      "name": "(SKEEP)",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(GRIND)",
+      "name": "(APPLY-EXTENSIONALITY :HIDE? T)",
       "type": "proof-command",
       "rules": [
        {
@@ -7877,6 +8141,19 @@
         "rules": [
          {
           "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
           "name": "(GRIND)",
           "type": "proof-command",
           "rules": []
@@ -7906,6 +8183,12 @@
     "rules": [
      {
       "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
       "name": "(EXPAND \"norm\")",
       "type": "proof-command",
       "rules": []
@@ -7914,18 +8197,18 @@
       "branch": "",
       "name": "(SPLIT)",
       "type": "proof-command",
-      "rules": []
-     },
-     {
-      "branch": "",
-      "name": "(FLATTEN)",
-      "type": "proof-command",
       "rules": [
        {
         "branch": "1",
         "name": "(1)",
         "type": "proof-branch",
         "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
          {
           "branch": "1",
           "name": "(LEMMA \"pos_times_ge\" (\"x\" \"z`re\" \"y\" \"z`re\"))",
@@ -7960,13 +8243,34 @@
           "branch": "1",
           "name": "(APPLY-EXTENSIONALITY 1 :HIDE? T)",
           "type": "proof-command",
-          "rules": []
-         },
-         {
-          "branch": "1",
-          "name": "(GRIND)",
-          "type": "proof-command",
-          "rules": []
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(GRIND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(GRIND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
          }
         ]
        },
@@ -7977,6 +8281,12 @@
         "rules": [
          {
           "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
           "name": "(REPLACE -1)",
           "type": "proof-command",
           "rules": []
@@ -7984,12 +8294,6 @@
          {
           "branch": "2",
           "name": "(EXPAND \"gzero\")",
-          "type": "proof-command",
-          "rules": []
-         },
-         {
-          "branch": "2",
-          "name": "(THEN (SKEEP) (EXPAND \"norm\") (SPREAD (SPLIT) ((THEN (FLATTEN) (LEMMA \"pos_times_ge\" (\"x\" \"z`re\" \"y\" \"z`re\")) (LEMMA \"pos_times_ge\" (\"x\" \"z`im\" \"y\" \"z`im\")) (LEMMA \"zero_times3\" (\"x\" \"z`re\" \"y\" \"z`re\")) (LEMMA \"zero_times3\" (\"x\" \"z`im\" \"y\" \"z`im\")) (EXPAND \"gzero\") (APPLY-EXTENSIONALITY 1 :HIDE? T) (GRIND)) (THEN (FLATTEN) (REPLACE -1) (EXPAND \"gzero\") (ASSERT)))))",
           "type": "proof-command",
           "rules": []
          }
@@ -8016,6 +8320,12 @@
     "name": "norm_pos",
     "type": "root",
     "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
      {
       "branch": "",
       "name": "(TYPEPRED \"nb\")",
@@ -8061,13 +8371,13 @@
     "rules": [
      {
       "branch": "",
-      "name": "(EXPAND \"gone\")",
+      "name": "(EXPAND \"norm\")",
       "type": "proof-command",
       "rules": []
      },
      {
       "branch": "",
-      "name": "(THEN (EXPAND \"norm\") (EXPAND \"gone\") (ASSERT))",
+      "name": "(EXPAND \"gone\")",
       "type": "proof-command",
       "rules": []
      }
@@ -8090,6 +8400,12 @@
     "name": "norm_conj",
     "type": "root",
     "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
      {
       "branch": "",
       "name": "(EXPAND \"norm\")",
@@ -8129,6 +8445,12 @@
     "rules": [
      {
       "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
       "name": "(EXPAND \"norm\")",
       "type": "proof-command",
       "rules": []
@@ -8164,6 +8486,12 @@
     "name": "norm_mult",
     "type": "root",
     "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
      {
       "branch": "",
       "name": "(EXPAND \"norm\")",

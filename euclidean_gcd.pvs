@@ -1,0 +1,447 @@
+%% ===================================================================
+%% euclidean_gcd.pvs
+%%
+%% PVS specification of the greatest common divisor over an abstract
+%% Euclidean domain  (T, +, *, zero, one).
+%%
+%% This theory generalises gcd_predicate.pvs (the integers) and
+%% gaussian_gcd.pvs (the Gaussian integers).  The algebraic notions are
+%% imported from the NASALib library algebra:
+%%
+%%   euclidean_domain_def     euclidean_domain?  (= euclidean ring AND
+%%                            integral domain with one)
+%%   euclidean_ring_def       euclidean_pair?, euclidean_f_phi?
+%%   ring                     ring laws and the additive inverse inv
+%%   ring_divides_def         divides?, associates?
+%%   ring_unit_def            unit?
+%%   ring_gcd_def             gcd?(R)(X, d)   (set-based gcd)
+%%   ring_euclidean_algorithm euclidean_gcd_algorithm and its correctness
+%%
+%% The only assumption is that the whole carrier fullset[T] is a
+%% Euclidean domain in the sense of NASALib.  The Euclidean function
+%% (playing the role of abs in Z and of the norm in Z[i]) is not given
+%% explicitly: it is chosen among the functions phi that witness the
+%% Euclidean property, i.e. those with euclidean_pair?(fullset[T], phi).
+%%
+%% As in the concrete theories, the gcd is specified relationally by a
+%% ternary predicate gcd?(a, b, d), independently of any algorithm.  A
+%% gcd is unique only up to multiplication by a unit; uniqueness is
+%% recovered by requiring d to be the *normal* associate.  Since an
+%% abstract domain has no canonical sign (Z) or quadrant (Z[i]), the
+%% normal associate of z is selected by Hilbert's choice from the
+%% associate class of z, with one fixed as the representative of the
+%% units.  Since associates share the same class, they share the same
+%% representative (§6).
+%%
+%% Contents
+%%   §1  Carrier, nonzero elements, subtraction
+%%   §2  Ring laws  (consequences of the Euclidean-domain assumption)
+%%   §3  Euclidean function (norm) and size
+%%   §4  Divisibility
+%%   §5  Units and associates
+%%   §6  Normal (canonical) associates
+%%   §7  Ternary gcd predicate and its basic properties
+%%   §8  Euclidean division
+%%   §9  Euclidean reduction
+%%   §10 Euclidean algorithm and its correctness
+%%   §11 Bézout's identity and existence
+%% ===================================================================
+
+euclidean_gcd[T : TYPE+, +, * : [T, T -> T], zero, one : T] : THEORY
+BEGIN
+
+  ASSUMING
+    IMPORTING algebra@euclidean_domain_def[T, +, *, zero, one]
+
+    fullset_is_euclidean_domain : ASSUMPTION
+      euclidean_domain?[T, +, *, zero, one](fullset[T])
+
+  ENDASSUMING
+
+  IMPORTING algebra@ring[T, +, *, zero],
+            algebra@ring_with_one_def[T, +, *, zero, one],
+            algebra@ring_divides_def[T, +, *, zero],
+            algebra@ring_unit_def[T, +, *, zero, one],
+            algebra@ring_gcd_def[T, +, *, zero]
+
+  %% -----------------------------------------------------------------
+  %% Section 1.  Carrier
+  %% -----------------------------------------------------------------
+
+  %% Algebraic structures that fullset[T] carries by the assumption;
+  %% they discharge the assumptions of the imported NASALib theories.
+  fullset_is_euclidean_ring : LEMMA euclidean_ring?(fullset[T])
+
+  fullset_is_commutative_ring : LEMMA commutative_ring?(fullset[T])
+
+  fullset_is_integral_domain_w_one : LEMMA
+    integral_domain_w_one?[T, +, *, zero, one](fullset[T])
+
+  fullset_is_ring_with_one : LEMMA
+    ring_with_one?[T, +, *, zero, one](fullset[T])
+
+  IMPORTING algebra@ring_euclidean_algorithm[T, +, *, zero, one]
+
+  %% Nonzero elements; exactly the domain type of a NASALib
+  %% Euclidean function phi when R = fullset[T].
+  nzT : TYPE = (difference(fullset[T], singleton(zero)))
+
+  a, b, c, d, e, q, r, u, w, x, y, z : VAR T
+  nb                                 : VAR nzT
+
+  nzT_neq_zero : LEMMA nb /= zero ;
+
+  %% Additive inverse (from the abelian group (T, +, zero)) and
+  %% subtraction.
+  -(z)    : T = inv[T, +, zero](z) ;
+  -(z, w) : T = z + (- w)
+
+  %% -----------------------------------------------------------------
+  %% Section 2.  Ring laws  (T is a commutative ring with unity)
+  %% -----------------------------------------------------------------
+
+  add_comm    : LEMMA z + w = w + z
+  add_assoc   : LEMMA (z + w) + u = z + (w + u)
+  add_zero    : LEMMA z + zero = z
+  add_neg     : LEMMA z + (- z) = zero
+  sub_def     : LEMMA z - w = z + (- w)
+
+  mul_comm    : LEMMA z * w = w * z
+  mul_assoc   : LEMMA (z * w) * u = z * (w * u)
+  mul_one     : LEMMA z * one = z
+  mul_one_left : LEMMA one * z = z
+  mul_zero    : LEMMA z * zero = zero
+  mul_distrib : LEMMA z * (w + u) = z * w + z * u
+
+  one_neq_zero : LEMMA one /= zero
+
+  %% T is an integral domain.
+  mul_eq_zero : LEMMA z * w = zero IFF (z = zero OR w = zero)
+
+  %% Cancellation, a consequence of the integral-domain property.
+  mul_cancel  : LEMMA
+    z /= zero AND z * w = z * u IMPLIES w = u
+
+  %% -----------------------------------------------------------------
+  %% Section 3.  Euclidean function (norm)
+  %% -----------------------------------------------------------------
+
+  %%  euclidean_ring?(fullset[T]) asserts the existence of some
+  %%  phi : nzT -> nat with
+  %%     (a)  a * b /= 0  ->  phi(a) <= phi(a * b)
+  %%     (b)  b /= 0      ->  EXISTS q, r: a = q*b + r AND
+  %%                                       (r = 0 OR phi(r) < phi(b)).
+  %%  We fix one such witness and call it the norm.
+
+  norm : {phi : [nzT -> nat] | euclidean_pair?(fullset[T], phi)} =
+    choose({phi : [nzT -> nat] | euclidean_pair?(fullset[T], phi)})
+
+  norm_euclidean_pair : LEMMA euclidean_pair?(fullset[T], norm)
+
+  %% Property (b): division with remainder.
+  norm_division : LEMMA
+    EXISTS (q, r : T) : a = q * nb + r AND (r = zero OR norm(r) < norm(nb))
+
+  %% Property (a) for nonzero factors.
+  norm_mult_le : LEMMA w /= zero IMPLIES norm(nb) <= norm(nb * w)
+
+  %% one has the least norm.
+  norm_one_min : LEMMA norm(one) <= norm(nb)
+
+  %% Extension of the norm to all of T, with zero strictly below every
+  %% nonzero element; used as termination measure.
+  size(z) : nat = IF z = zero THEN 0 ELSE norm(z) + 1 ENDIF
+
+  size_zero : LEMMA size(z) = 0 IFF z = zero
+  size_pos  : LEMMA size(nb) > 0
+
+  %% -----------------------------------------------------------------
+  %% Section 4.  Divisibility
+  %% -----------------------------------------------------------------
+
+  %% d | z  iff  z = k * d for some k.
+  divides(d, z) : bool = EXISTS (k : T) : z = k * d
+
+  div_refl       : LEMMA divides(z, z)
+  div_zero_right : LEMMA divides(d, zero)
+  div_zero_left  : LEMMA divides(zero, z) IFF z = zero
+  div_one        : LEMMA divides(one, z)
+  div_trans      : LEMMA
+    divides(a, b) AND divides(b, c) IMPLIES divides(a, c)
+  div_mult       : LEMMA divides(d, z) IMPLIES divides(d, w * z)
+  div_sum        : LEMMA
+    divides(d, a) AND divides(d, b) IMPLIES divides(d, a + b)
+
+  %% d divides every T-linear combination of a and b.
+  div_linear     : LEMMA
+    divides(d, a) AND divides(d, b) IMPLIES
+      FORALL (x, y : T) : divides(d, x * a + y * b)
+
+  %% A nonzero multiple has norm at least that of the divisor.
+  div_norm_le    : LEMMA
+    d /= zero AND divides(d, nb) IMPLIES norm(d) <= norm(nb)
+
+  %% Agreement with NASALib's divides? (defined for nonzero divisors).
+  div_ring_divides : LEMMA
+    d /= zero IMPLIES (divides(d, z) IFF divides?(fullset[T])(d, z))
+
+  %% -----------------------------------------------------------------
+  %% Section 5.  Units and associates
+  %% -----------------------------------------------------------------
+
+  unit?(u) : bool = divides(u, one)
+
+  %% Agreement with NASALib's unit? (two-sided invertibility).
+  unit_ring_unit : LEMMA
+    unit?(u) IFF unit?[T, +, *, zero, one](fullset[T])(u)
+
+  unit_nonzero : LEMMA unit?(u) IMPLIES u /= zero
+  unit_one     : LEMMA unit?(one)
+  unit_mult    : LEMMA unit?(u) AND unit?(w) IMPLIES unit?(u * w)
+
+  %% Units are exactly the nonzero elements of least norm.
+  unit_norm  : LEMMA unit?(nb) IFF norm(nb) = norm(one)
+
+  %% z and w are associates iff they differ by a unit factor.
+  assoc?(z, w) : bool = EXISTS (u : T) : unit?(u) AND w = u * z
+
+  assoc_refl  : LEMMA assoc?(z, z)
+  assoc_symm  : LEMMA assoc?(z, w) IMPLIES assoc?(w, z)
+  assoc_trans : LEMMA
+    assoc?(z, w) AND assoc?(w, u) IMPLIES assoc?(z, u)
+
+  assoc_zero  : LEMMA assoc?(zero, z) IFF z = zero
+
+  assoc_one   : LEMMA assoc?(z, one) IFF unit?(z)
+
+  %% Mutual divisibility characterises associates (cf. div_antisymm).
+  assoc_div   : LEMMA
+    assoc?(z, w) IFF (divides(z, w) AND divides(w, z))
+
+  assoc_norm  : LEMMA
+    assoc?(z, nb) IMPLIES z /= zero AND norm(z) = norm(nb)
+
+  %% Agreement with NASALib's associates?.
+  assoc_ring_associates : LEMMA
+    z /= zero AND w /= zero IMPLIES
+      (assoc?(z, w) IFF associates?(fullset[T])(z, w))
+
+  %% -----------------------------------------------------------------
+  %% Section 6.  Normal associates
+  %% -----------------------------------------------------------------
+
+  %%  Abstract counterpart of  d >= 0  (Z)  and of the first quadrant
+  %%  (Z[i]):  one representative is chosen from every associate
+  %%  class; for the class of units the representative is one.
+
+  assoc_class(z) : (nonempty?[T]) = {w : T | assoc?(z, w)}
+
+  normalize(z) : {w : T | assoc?(z, w)} =
+    IF unit?(z) THEN one
+    ELSE choose(assoc_class(z))
+    ENDIF
+
+  normal?(z) : bool = normalize(z) = z
+
+  normalize_assoc  : LEMMA assoc?(z, normalize(z))
+
+  %% Associates have the same normal associate.
+  normalize_eq     : LEMMA
+    assoc?(z, w) IMPLIES normalize(z) = normalize(w)
+
+  normalize_normal : LEMMA normal?(normalize(z))
+  normalize_id     : LEMMA normal?(z) IMPLIES normalize(z) = z
+  normalize_zero   : LEMMA normalize(zero) = zero
+  normalize_one    : LEMMA normalize(one) = one
+
+  %% Two normal associates are equal.
+  normal_assoc_eq  : LEMMA
+    normal?(z) AND normal?(w) AND assoc?(z, w) IMPLIES z = w
+
+  %% -----------------------------------------------------------------
+  %% Section 7.  Ternary gcd predicate
+  %% -----------------------------------------------------------------
+
+  %%  gcd?(a, b, d) holds when d is THE (normalised) gcd of a and b:
+  %%
+  %%    (i)   normal?(d)                     normalisation (unique rep.)
+  %%    (ii)  d | a                     \
+  %%    (iii) d | b                      }   d is a common divisor
+  %%    (iv)  for all e: e | a and e | b  ->  e | d      maximality
+
+  gcd?(a, b, d) : bool =
+    normal?(d)
+    AND divides(d, a)
+    AND divides(d, b)
+    AND FORALL (e : T) :
+          divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
+
+  gcd_normal   : LEMMA gcd?(a, b, d) IMPLIES normal?(d)
+  gcd_div_a    : LEMMA gcd?(a, b, d) IMPLIES divides(d, a)
+  gcd_div_b    : LEMMA gcd?(a, b, d) IMPLIES divides(d, b)
+  gcd_greatest : LEMMA
+    gcd?(a, b, d) AND divides(e, a) AND divides(e, b) IMPLIES divides(e, d)
+
+  %% Maximality in terms of the norm.
+  gcd_greatest_norm : LEMMA
+    gcd?(a, b, nb) AND divides(e, a) AND divides(e, b)
+    IMPLIES e /= zero AND norm(e) <= norm(nb)
+
+  %% Uniqueness: two gcds are associates (assoc_div), and both are
+  %% normal, hence equal (normal_assoc_eq).
+  gcd_unique   : LEMMA
+    gcd?(a, b, d) AND gcd?(a, b, e) IMPLIES d = e
+
+  gcd_symm     : LEMMA gcd?(a, b, d) IFF gcd?(b, a, d)
+
+  %% Base cases.
+  gcd_zero_right : LEMMA gcd?(a, zero, d) IFF d = normalize(a)
+  gcd_zero_left  : LEMMA gcd?(zero, b, d) IFF d = normalize(b)
+  gcd_both_zero  : LEMMA gcd?(zero, zero, d) IFF d = zero
+  gcd_self       : LEMMA gcd?(a, a, d) IFF d = normalize(a)
+  gcd_one_right  : LEMMA gcd?(a, one, one)
+  gcd_one_left   : LEMMA gcd?(one, b, one)
+
+  %% Invariance of the gcd under associates of the arguments.
+  gcd_assoc_arg  : LEMMA
+    assoc?(b, c) IMPLIES (gcd?(a, b, d) IFF gcd?(a, c, d))
+
+  %% Agreement with NASALib's set-based gcd?(R)(X, d).  NASALib's gcd
+  %% is nonzero and unique up to associates, so the pair (zero, zero)
+  %% is excluded and the normal associate is taken.
+  gcd_ring_gcd   : LEMMA
+    (a /= zero OR b /= zero) AND gcd?(a, b, d) IMPLIES
+      d /= zero AND
+      gcd?[T, +, *, zero](fullset[T])({x : T | x = a OR x = b}, d)
+
+  ring_gcd_gcd   : LEMMA
+    (a /= zero OR b /= zero) AND
+    gcd?[T, +, *, zero](fullset[T])({x : T | x = a OR x = b}, nb)
+    IMPLIES gcd?(a, b, normalize(nb))
+
+  %% -----------------------------------------------------------------
+  %% Section 8.  Euclidean division
+  %% -----------------------------------------------------------------
+
+  %% T is a Euclidean domain: q and r always exist (size(zero) = 0
+  %% handles the case r = zero uniformly).
+  euclidean_division : LEMMA
+    EXISTS (q, r : T) : a = q * nb + r AND size(r) < size(nb)
+
+  %% A chosen quotient-remainder pair; (zero, zero) when a = zero,
+  %% as NASALib's euclidean_f_phi? requires.
+  divrem(a, nb) : {qr : [T, T] | a = qr`1 * nb + qr`2 AND
+                                 size(qr`2) < size(nb)} =
+    IF a = zero THEN (zero, zero)
+    ELSE choose({qr : [T, T] | a = qr`1 * nb + qr`2 AND
+                               size(qr`2) < size(nb)})
+    ENDIF
+
+  equot(a, nb) : T = divrem(a, nb)`1
+  erem(a, nb)  : T = divrem(a, nb)`2
+
+  %% Division identity.
+  ediv_eq       : LEMMA a = equot(a, nb) * nb + erem(a, nb)
+
+  %% Remainder bound: the Euclidean property of the norm.
+  erem_size_lt  : LEMMA size(erem(a, nb)) < size(nb)
+  erem_norm_lt  : LEMMA
+    erem(a, nb) /= zero IMPLIES norm(erem(a, nb)) < norm(nb)
+
+  %% divrem, typed as a division function in NASALib's sense.
+  f_divrem(x : (fullset[T]), y : (remove(zero, fullset[T])))
+    : [(fullset[T]), (fullset[T])] = divrem(x, y)
+
+  f_divrem_euclidean : LEMMA
+    euclidean_f_phi?(fullset[T], norm)(f_divrem)
+
+  %% -----------------------------------------------------------------
+  %% Section 9.  Euclidean reduction
+  %% -----------------------------------------------------------------
+
+  %%  {common divisors of (a, b)} = {common divisors of (b, r)}
+  %%  whenever a = q*b + r, hence both pairs have the same gcd.
+
+  %% The remainder is a linear combination of a and b.
+  rem_linear : LEMMA
+    a = q * b + r IMPLIES r = one * a + (- q) * b
+
+  common_div_reduction : LEMMA
+    a = q * b + r IMPLIES
+      (divides(e, a) AND divides(e, b) IFF divides(e, b) AND divides(e, r))
+
+  euclidean_reduction_qr : LEMMA
+    a = q * b + r IMPLIES (gcd?(a, b, d) IFF gcd?(b, r, d))
+
+  euclidean_reduction : LEMMA
+    gcd?(a, nb, d) IFF gcd?(nb, erem(a, nb), d)
+
+  %% -----------------------------------------------------------------
+  %% Section 10.  Euclidean algorithm
+  %% -----------------------------------------------------------------
+
+  %%  egcd(a, 0) = normalize(a)
+  %%  egcd(a, b) = egcd(b, a rem b)        (b /= 0)
+  %%
+  %%  Termination: size(a rem b) < size(b)  (erem_size_lt).
+
+  egcd(a, b) : RECURSIVE T =
+    IF b = zero THEN normalize(a)
+    ELSE egcd(b, erem(a, b))
+    ENDIF
+  MEASURE size(b)
+
+  %% Unfolding equations.
+  egcd_zero  : LEMMA egcd(a, zero) = normalize(a)
+  egcd_step  : LEMMA egcd(a, nb) = egcd(nb, erem(a, nb))
+
+  %% Soundness: the algorithm computes a gcd.
+  egcd_sound    : LEMMA gcd?(a, b, egcd(a, b))
+
+  %% Correctness: the algorithm computes exactly THE gcd.
+  egcd_correct  : LEMMA gcd?(a, b, d) IFF egcd(a, b) = d
+
+  %% Derived properties of the algorithm.
+  egcd_normal   : LEMMA normal?(egcd(a, b))
+  egcd_symm     : LEMMA egcd(a, b) = egcd(b, a)
+  egcd_div_a    : LEMMA divides(egcd(a, b), a)
+  egcd_div_b    : LEMMA divides(egcd(a, b), b)
+
+  %% Agreement with NASALib's euclidean_gcd_algorithm: up to the
+  %% choice of normal associate, both algorithms compute the same gcd.
+  egcd_ring_algorithm : LEMMA
+    egcd(a, nb) =
+      normalize(euclidean_gcd_algorithm(fullset[T], norm, f_divrem)(a, nb))
+
+  %% -----------------------------------------------------------------
+  %% Section 11.  Existence and Bézout's identity
+  %% -----------------------------------------------------------------
+
+  %% Every pair of elements has a (unique) gcd.
+  gcd_exists : LEMMA EXISTS (d : T) : gcd?(a, b, d)
+
+  %% Inductive step of Bézout: coefficients for (b, r) yield
+  %% coefficients for (a, b) when a = q*b + r.
+  bezout_step : LEMMA
+    a = q * b + r AND b * x + r * y = d IMPLIES
+      a * y + b * (x + (- q) * y) = d
+
+  %% Bézout: the gcd is a T-linear combination of a and b.
+  %% Proof by measure induction on size(b), using euclidean_reduction
+  %% and ediv_eq, exactly as in gcd_predicate.bezout.
+  bezout : LEMMA
+    gcd?(a, b, d) IMPLIES EXISTS (x, y : T) : a * x + b * y = d
+
+  %% Coprimality.
+  coprime?(a, b) : bool = gcd?(a, b, one)
+
+  coprime_symm   : LEMMA coprime?(a, b) IFF coprime?(b, a)
+
+  coprime_bezout : LEMMA
+    coprime?(a, b) IFF EXISTS (x, y : T) : a * x + b * y = one
+
+  %% Euclid's lemma.
+  euclid_lemma : LEMMA
+    coprime?(a, b) AND divides(a, b * c) IMPLIES divides(a, c)
+
+END euclidean_gcd

@@ -1,0 +1,912 @@
+{
+ "euclidean_gcd.IMP_ring_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "IMP_ring_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "IMP_ring_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(LEMMA \"fullset_is_euclidean_domain\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"euclidean_domain?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"euclidean_ring?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"commutative_ring?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.IMP_ring_euclidean_algorithm_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "IMP_ring_euclidean_algorithm_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "IMP_ring_euclidean_algorithm_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(ASSUMING-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.norm_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "norm_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.norm_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "norm_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.norm_mult_le_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "norm_mult_le_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_mult_le_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.norm_one_min_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "norm_one_min_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_one_min_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.size_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "size_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "size_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.div_ring_divides_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "div_ring_divides_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_ring_divides_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.div_ring_divides_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "div_ring_divides_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_ring_divides_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.unit_ring_unit_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "unit_ring_unit_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "unit_ring_unit_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.assoc_ring_associates_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "assoc_ring_associates_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "assoc_ring_associates_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.assoc_class_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "assoc_class_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "assoc_class_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.gcd_greatest_norm_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "gcd_greatest_norm_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_greatest_norm_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.gcd_ring_gcd_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "gcd_ring_gcd_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_ring_gcd_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.gcd_ring_gcd_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "gcd_ring_gcd_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_ring_gcd_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.ring_gcd_gcd_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "ring_gcd_gcd_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ring_gcd_gcd_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.ring_gcd_gcd_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "ring_gcd_gcd_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ring_gcd_gcd_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.ring_gcd_gcd_TCC3": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "ring_gcd_gcd_TCC3",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "ring_gcd_gcd_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.divrem_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "divrem_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "divrem_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.erem_norm_lt_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "erem_norm_lt_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "erem_norm_lt_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.f_divrem_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "f_divrem_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_divrem_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.f_divrem_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "f_divrem_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_divrem_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.f_divrem_euclidean_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "f_divrem_euclidean_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "501443acc69eeab9127910b02b3fae963bd1d6067917ac47cefa6cacc806acb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_divrem_euclidean_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.egcd_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "egcd_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "egcd_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(TERMINATION-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.egcd_ring_algorithm_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "egcd_ring_algorithm_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "egcd_ring_algorithm_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.egcd_ring_algorithm_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "egcd_ring_algorithm_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "egcd_ring_algorithm_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.egcd_ring_algorithm_TCC3": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "egcd_ring_algorithm_TCC3",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "egcd_ring_algorithm_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.fullset_is_euclidean_ring": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "fullset_is_euclidean_ring",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "915fc65639c31f166e78413507887a0a34fc25fa6f4f70fd85d29e69530e785c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "fullset_is_euclidean_ring",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"euclidean_domain?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.fullset_is_integral_domain_w_one": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "fullset_is_integral_domain_w_one",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "915fc65639c31f166e78413507887a0a34fc25fa6f4f70fd85d29e69530e785c"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "fullset_is_integral_domain_w_one",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(EXPAND \"euclidean_domain?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.norm_division_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "norm_division_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "norm_division_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.normalize_TCC1": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "normalize_TCC1",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "normalize_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.normalize_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "normalize_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "normalize_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": []
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "euclidean_gcd.divrem_TCC2": [
+  {
+   "info": {
+    "theory": "euclidean_gcd",
+    "formula": "divrem_TCC2",
+    "status": "unfinished",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "b3a43caa679b935b136cdd450d81aab815b438181bd47583da90e563d905f7dc"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "divrem_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,106 @@
+(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))(("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  |f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+  (|f_divrem_euclidean| SUBTYPE "norm"
+   "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}"))
+ ("euclidean_gcd"
+  (|f_divrem_euclidean_TCC1| 0
+   (|f_divrem_euclidean_TCC1-1| NIL 4002297378 ("" (SUBTYPE-TCC) NIL NIL) NIL
+    NIL
+    (|f_divrem_euclidean| SUBTYPE "norm"
+     "{phi: [(sets[euclidean_gcd.T].difference(sets[euclidean_gcd.T].fullset, sets[euclidean_gcd.T].singleton(euclidean_gcd.zero))) -> naturalnumbers.nat] | euclidean_ring_def[euclidean_gcd.T, euclidean_gcd.+, euclidean_gcd.*, euclidean_gcd.zero].euclidean_pair?(sets[euclidean_gcd.T].fullset, phi)}")))
+  . 0))
