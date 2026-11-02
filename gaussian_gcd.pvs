@@ -6,7 +6,7 @@
 %%
 %% Z[i] is a Euclidean domain with respect to the norm
 %%     N(x + y*i) = x^2 + y^2 .
-%% As in gcd_predicate.pvs, the gcd is specified relationally by a
+%% As in integers_gcd.pvs, the gcd is specified relationally by a
 %% ternary predicate gcd?(a, b, d), independently of any algorithm.
 %% Since a gcd in Z[i] is unique only up to multiplication by a unit
 %% (1, -1, i, -i), the predicate requires d to be the *normalised*
@@ -327,7 +327,7 @@ BEGIN
 
   %% Bézout: the gcd is a Z[i]-linear combination of a and b.
   %% Proof by measure induction on norm(b), using euclidean_reduction
-  %% and gdiv_eq, exactly as in gcd_predicate.bezout.
+  %% and gdiv_eq, exactly as in integers_gcd.bezout.
   bezout : LEMMA
     gcd?(a, b, d) IMPLIES EXISTS (x, y : gint) : a * x + b * y = d
 

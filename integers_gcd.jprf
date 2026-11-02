@@ -1,0 +1,5134 @@
+{
+ "integers_gcd.div_antisymm": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_antisymm",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_antisymm",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"divides\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKOLEM -1 \"kb\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKOLEM -2 \"ka\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(CASE \"a = 0\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(REPLACE -1 -2)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(CASE-REPLACE \"ka * (kb * a) = ka * kb * a\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.2.1",
+                "name": "(1.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.2.1",
+                  "name": "(CASE-REPLACE \"ka * kb = 1\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "1.2.1.1",
+                    "name": "(1.2.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(LEMMA \"product_one\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(INST?)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(FLATTEN)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(HIDE-ALL-BUT (-2 -5 +))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(EXPAND \"abs\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(LIFT-IF)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(LIFT-IF)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.1",
+                      "name": "(PROP)",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "1.2.1.1.1",
+                        "name": "(1.2.1.1.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.2.1.1.1",
+                          "name": "(ASSERT)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "1.2.1.1.2",
+                        "name": "(1.2.1.1.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.2.1.1.2",
+                          "name": "(ASSERT)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "1.2.1.1.3",
+                        "name": "(1.2.1.1.3)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.2.1.1.3",
+                          "name": "(LIFT-IF)",
+                          "type": "proof-command",
+                          "rules": []
+                         },
+                         {
+                          "branch": "1.2.1.1.3",
+                          "name": "(PROP)",
+                          "type": "proof-command",
+                          "rules": [
+                           {
+                            "branch": "1.2.1.1.3.1",
+                            "name": "(1.2.1.1.3.1)",
+                            "type": "proof-branch",
+                            "rules": [
+                             {
+                              "branch": "1.2.1.1.3.1",
+                              "name": "(ASSERT)",
+                              "type": "proof-command",
+                              "rules": []
+                             }
+                            ]
+                           },
+                           {
+                            "branch": "1.2.1.1.3.2",
+                            "name": "(1.2.1.1.3.2)",
+                            "type": "proof-branch",
+                            "rules": [
+                             {
+                              "branch": "1.2.1.1.3.2",
+                              "name": "(ASSERT)",
+                              "type": "proof-command",
+                              "rules": []
+                             }
+                            ]
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "1.2.1.2",
+                    "name": "(1.2.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "1.2.1.2",
+                      "name": "(HIDE-ALL-BUT (-3 1 2))",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.2",
+                      "name": "(LEMMA \"both_sides_times1\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "1.2.1.2",
+                      "name": "(INST -1 \"a\" \"1\" \"ka * kb\")",
+                      "type": "proof-command",
+                      "rules": [
+                       {
+                        "branch": "1.2.1.2.1",
+                        "name": "(1.2.1.2.1)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.2.1.2.1",
+                          "name": "(ASSERT)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       },
+                       {
+                        "branch": "1.2.1.2.2",
+                        "name": "(1.2.1.2.2)",
+                        "type": "proof-branch",
+                        "rules": [
+                         {
+                          "branch": "1.2.1.2.2",
+                          "name": "(ASSERT)",
+                          "type": "proof-command",
+                          "rules": []
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "branch": "1.2.2",
+                "name": "(1.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.2.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(REWRITE \"div_eq_abs\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(REWRITE \"div_eq_abs\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_nonneg": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_nonneg",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_nonneg",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_div_a": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_div_a",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_div_a",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_div_b": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_div_b",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_div_b",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_greatest": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_greatest",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_greatest",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST?)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_greatest_le": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_greatest_le",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_greatest_le",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_greatest\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"d\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"div_le\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"d\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_is_common_div": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_is_common_div",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_is_common_div",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"common_div?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_unique": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_unique",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_unique",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_greatest\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"e\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_greatest\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"d\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_div_a\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_div_b\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_div_a\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_div_b\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_nonneg\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_nonneg\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"div_antisymm\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"d\" \"e\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"abs\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_symm": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_symm",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_symm",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKOLEM 1 \"x\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -4 \"x\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SKOLEM 1 \"x\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -4 \"x\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_zero_right": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_zero_right",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_zero_right",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -4 \"a\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LEMMA \"div_refl\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -1 \"a\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LEMMA \"div_zero_right\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -1 \"a\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LEMMA \"div_antisymm\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -1 \"d\" \"a\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(EXPAND \"abs\" -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(EXPAND \"abs\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(REPLACE -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(HIDE -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"div_eq_abs\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST-CP -1 \"abs(a)\" \"a\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -1 \"a\" \"abs(a)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"div_zero_right\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -1 \"abs(a)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"div_trans\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(CASE \"abs(abs(a)) = abs(a)\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(SKOLEM 1 \"x\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(INST -2 \"x\" \"a\" \"abs(a)\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(HIDE-ALL-BUT 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(LIFT-IF)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_le": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_le",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_le",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -1 \"k\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LABEL \"akd\" -1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LABEL \"apos\" -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"abs_mult\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"k\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE \"akd\" -1 :DIR RL)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LABEL \"absa\" -1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"k = 0\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(REPLACE -1 \"akd\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(LABEL \"knz\" 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(CASE \"abs(k) >= 1\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(CASE \"abs(a) = a\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.1.1",
+                "name": "(2.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.1",
+                  "name": "(LEMMA \"ge_times_ge_pos\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.1",
+                  "name": "(INST -1 \"abs(d)\" \"1\" \"abs(k)\" \"abs(d)\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.1",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.1.2",
+                "name": "(2.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.2",
+                  "name": "(HIDE-ALL-BUT (\"apos\" 1))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(EXPAND \"abs\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(HIDE-ALL-BUT (\"knz\" 1))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(LIFT-IF)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_zero_left": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_zero_left",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_zero_left",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_symm\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"0\" \"b\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_zero_right\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"b\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -2 1)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_both_zero": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_both_zero",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_both_zero",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_zero_right\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"0\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"abs\" -1)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_self": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_self",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_self",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_zero_right\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"d\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"gcd?(a, a, d) IFF gcd?(a, 0, d)\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(REPLACE -1 1)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(HIDE-ALL-BUT 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"div_zero_right\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SPLIT 1)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(SPLIT 1)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.1.1",
+                "name": "(2.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.1",
+                  "name": "(INST -5 \"d\")",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.1.2",
+                "name": "(2.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.2",
+                  "name": "(SKOLEM 1 \"e!1\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(FLATTEN)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(INST -6 \"e!1\")",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(SKOLEM 1 \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -4 \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -7 \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_one_right": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_one_right",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_one_right",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"div_one\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST-CP -1 \"a\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM 1 \"e!1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_one_left": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_one_left",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_one_left",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_symm\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"1\" \"b\" \"1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"gcd_one_right\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"b\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.euclidean_reduction": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "euclidean_reduction",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "euclidean_reduction",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"rem(abs(b))(a)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -2 \"qq\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(NAME-REPLACE \"rr\" \"rem(abs(b))(a)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"euclidean_reduction_qr\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"b < 0\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(CASE \"abs(b) = -b\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(REPLACE -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(INST -3 \"a\" \"b\" \"d\" \"-qq\" \"rr\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(INST -1 \"a\" \"b\" \"d\" \"qq\" \"rr\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(CASE \"abs(b) = b\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(REPLACE -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.euclidean_reduction_qr": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "euclidean_reduction_qr",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "euclidean_reduction_qr",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"FORALL (e: int): (divides(e, a) AND divides(e, b)) IFF (divides(e, b) AND divides(e, r))\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(LABEL \"key\" -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(HIDE 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SPLIT 1)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(LABEL \"mx\" -4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(INST-CP \"key\" \"d\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(LABEL \"mx\" -4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(INST-CP \"key\" \"d\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(SKOLEM 1 \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(INST \"key\" \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(INST \"mx\" \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(LABEL \"mx\" -4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(INST-CP \"key\" \"d\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(LABEL \"mx\" -4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(INST-CP \"key\" \"d\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(SKOLEM 1 \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(INST \"key\" \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(INST \"mx\" \"f\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(SKOLEM 1 \"e\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"div_linear\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST-CP -1 \"e\" \"a\" \"b\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -1 \"e\" \"b\" \"r\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SPLIT 1)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(REVEAL -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(INST -1 \"a\" \"b\" \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(INST -1 \"1\" \"-q\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(CASE \"1 * a + -q * b = r\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.1.1",
+                "name": "(2.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.1",
+                  "name": "(REPLACE -1 -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.1.2",
+                "name": "(2.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(REVEAL -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -1 \"b\" \"r\" \"e\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -1 \"q\" \"1\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(CASE \"q * b + 1 * r = a\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.2.1",
+                "name": "(2.2.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.1",
+                  "name": "(REPLACE -1 -2)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.2.2",
+                "name": "(2.2.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.2.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.euclidean_reduction_TCC1": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "euclidean_reduction_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "euclidean_reduction_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"abs\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LIFT-IF)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GROUND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC1": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"j\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC2": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"j\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(GRIND)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC3": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKOLEM 1 (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC4": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC4",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC4",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \" rem(abs(j))(i)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(HIDE -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(NAME-REPLACE \"rr\" \"rem(abs(j))(i)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC6": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC6",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC6",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(TYPEPRED \"rem(abs(i))(j)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(HIDE -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(NAME-REPLACE \"rr\" \"rem(abs(i))(j)\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_TCC5": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_TCC5",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_TCC5",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.f_gcd_is_correct": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "f_gcd_is_correct",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "f_gcd_is_correct",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKOLEM 1 (\"d\" \"_\" \"_\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(MEASURE-INDUCT+ \"abs(i) + abs(j)\" (\"i\" \"j\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"x!1 = 0 OR x!2 = 0\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SPLIT -1)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(REPLACES -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(REWRITE \"gcd_zero_left\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(EXPAND \"f_gcd\" 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(REPLACES -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(REWRITE \"gcd_zero_right\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(EXPAND \"f_gcd\" 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(CASE \"abs(x!1) >= abs(x!2)\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(INST -2 \"rem(abs(x!2))(x!1)\" \"x!2\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(TYPEPRED \"rem(abs(x!2))(x!1)\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(LEMMA \"euclidean_reduction\" (\"a\" \"x!1\" \"b\" \"x!2\" \"d\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(LEMMA \"gcd_symm\" (\"a\" \"x!2\" \"b\" \"rem(abs(x!2))(x!1)\" \"d\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(EXPAND \"f_gcd\" 3)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.1.1",
+                "name": "(2.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.1",
+                  "name": "(EXPAND \"abs\" 2 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.1",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "2.1.2",
+                "name": "(2.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.2",
+                  "name": "(EXPAND \"abs\" 2 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.2",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -1 \"rem(abs(x!1))(x!2)\" \"x!1\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(TYPEPRED \"rem(abs(x!1))(x!2)\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(LEMMA \"euclidean_reduction\" (\"a\" \"x!2\" \"b\" \"x!1\" \"d\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(LEMMA \"gcd_symm\" (\"a\" \"x!1\" \"b\" \"rem(abs(x!1))(x!2)\" \"d\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(LEMMA \"gcd_symm\" (\"a\" \"x!1\" \"b\" \"x!2\" \"d\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"f_gcd\" 4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"abs\" -6 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(GROUND)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.bezout": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "bezout",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "bezout",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(MEASURE-INDUCT+ \"abs(b)\" \"b\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE-REPLACE \"x!1 =0\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(HIDE -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(REWRITE \"gcd_zero_right\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(REPLACES -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST 1 \"if a < 0 then -1 else 1 endif\" \"24\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(GRIND-REALS)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(GRIND-REALS)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(EXPAND \"abs\")",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(LEMMA \"euclidean_reduction\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -1 \"a\" \"x!1\" \"d\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -2 \"rem(abs(x!1))(a)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -2 \"x!1\" \"d\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(PROP)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(SKEEP)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(TYPEPRED \"rem(abs(x!1))(a)\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(SKEEP)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(CASE \"rem(abs(x!1))(a) = a - abs(x!1) * q\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "2.1.1",
+                "name": "(2.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.1",
+                  "name": "(REPLACE -1 -4)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.1",
+                  "name": "(HIDE-ALL-BUT (-4 1 2))",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "2.1.1",
+                  "name": "(CASE \"x!1 <0\")",
+                  "type": "proof-command",
+                  "rules": [
+                   {
+                    "branch": "2.1.1.1",
+                    "name": "(2.1.1.1)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.1.1.1",
+                      "name": "(EXPAND \"abs\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.1",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.1",
+                      "name": "(INST 2 \"y\" \"q*y + x\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.1",
+                      "name": "(GRIND-REALS)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   },
+                   {
+                    "branch": "2.1.1.2",
+                    "name": "(2.1.1.2)",
+                    "type": "proof-branch",
+                    "rules": [
+                     {
+                      "branch": "2.1.1.2",
+                      "name": "(EXPAND \"abs\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.2",
+                      "name": "(ASSERT)",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.2",
+                      "name": "(INST 3 \"y\" \"x - q * y\")",
+                      "type": "proof-command",
+                      "rules": []
+                     },
+                     {
+                      "branch": "2.1.1.2",
+                      "name": "(GRIND-REALS)",
+                      "type": "proof-command",
+                      "rules": []
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "branch": "2.1.2",
+                "name": "(2.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "2.1.2",
+                  "name": "(GRIND-REALS)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(TYPEPRED \"rem(abs(x!1))(a)\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(HIDE -2 3 -3 -4)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(GRIND-REALS)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(EXPAND \"abs\" 1 1)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.coprime_symm": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "coprime_symm",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "coprime_symm",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"coprime?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REWRITE \" gcd_symm\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.coprime_one": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "coprime_one",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "coprime_one",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"coprime?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(GRIND)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.euclid_lemma": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "euclid_lemma",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "euclid_lemma",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"coprime?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(LEMMA \"bezout\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST -1 \"a\" \"b\" \"1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -1 (\"x\" \"y\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -3 \"k\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"c*x + k*y\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"c = c*(a*x+b*y)\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(CASE \"(c * x + k * y) * a = c*(a*x) + (k*a)*y\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(REPLACE -1 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(REPLACE -5 1 :DIR RL)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(CASE \"c * (a * x) + b * c * y = c * (a * x + b * y)\")",
+              "type": "proof-command",
+              "rules": [
+               {
+                "branch": "1.1.1",
+                "name": "(1.1.1)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.1.1",
+                  "name": "(ASSERT)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               },
+               {
+                "branch": "1.1.2",
+                "name": "(1.1.2)",
+                "type": "proof-branch",
+                "rules": [
+                 {
+                  "branch": "1.1.2",
+                  "name": "(HIDE-ALL-BUT 1)",
+                  "type": "proof-command",
+                  "rules": []
+                 },
+                 {
+                  "branch": "1.1.2",
+                  "name": "(GRIND-REALS)",
+                  "type": "proof-command",
+                  "rules": []
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(HIDE-ALL-BUT 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(GRIND-REALS)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(REPLACE -1 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_coprime_quotients": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_coprime_quotients",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_coprime_quotients",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"coprime?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"gcd?\" 1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT 1)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"divides\" 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST 1 \"a/d\")",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(EXPAND \"gcd?\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(FLATTEN)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(EXPAND \"divides\" -2)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(SKOLEM -2 \"k\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(EXPAND \"divides\" -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(SKOLEM -1 \"j\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(REPLACE -1 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(EXPAND \"divides\" 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"divides\" -2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"divides\" -3)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SKOLEM -3 \"m\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST 1 \"m\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(REPLACE -3 1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "3",
+        "name": "(3)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "3",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(EXPAND \"gcd?\" -3)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(EXPAND \"divides\" (-1 -2))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(SKOLEM -1 \"p\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(SKOLEM -2 \"q\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(INST -6 \"e*d\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "3",
+          "name": "(SPLIT -6)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "3.1",
+            "name": "(3.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "3.1",
+              "name": "(EXPAND \"divides\" (-1 1))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(SKOLEM -1 \"r\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(INST 1 \"r\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(GRIND-REALS)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(LEMMA \"both_sides_times1\" (\"x\" \"1\" \"y\" \"r*e\" \"n0z\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "3.2",
+            "name": "(3.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "3.2",
+              "name": "(EXPAND \"divides\" 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.2",
+              "name": "(INST 1 \"p\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.2",
+              "name": "(LEMMA \"div_cancel1\" (\"x\" \"a\" \"n0z\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.2",
+              "name": "(REPLACE -2 -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "3.3",
+            "name": "(3.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "3.3",
+              "name": "(EXPAND \"divides\" 1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.3",
+              "name": "(INST 1 \"q\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.3",
+              "name": "(LEMMA \"div_cancel1\" (\"x\" \"b\" \"n0z\" \"d\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.3",
+              "name": "(REPLACE -3 -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "3.3",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.coprime_bezout": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "coprime_bezout",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "coprime_bezout",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"coprime?\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SPLIT 1)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LEMMA \"bezout\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -1 \"a\" \"b\" \"1\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SKOLEM -1 (\"x\" \"y\"))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"gcd?\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SPLIT 1)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(LEMMA \"div_one\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.1",
+              "name": "(INST -1 \"a\")",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(LEMMA \"div_one\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.2",
+              "name": "(INST -1 \"b\")",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.3",
+            "name": "(2.3)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.3",
+              "name": "(SKEEP)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(LEMMA \"div_linear\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(INST -1 \"e\" \"a\" \"b\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(HIDE -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(LEMMA \"div_linear\" (\"d\" \"e\" \"a\" \"a\" \"b\" \"b\"))",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(INST -1 \"x\" \"y\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "2.3",
+              "name": "(REPLACE -4)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_exists": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_exists",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_exists",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"a = 0 AND b = 0\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(FLATTEN)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(REPLACES (-1 -2))",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST 1 \"0\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LEMMA \"gcd_both_zero\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST -1 \"0\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(INST 2 \"f_gcd(a, b)\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LEMMA \"f_gcd_is_correct\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST -1 \"f_gcd(a, b)\" \"a\" \"b\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_refl": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_refl",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_refl",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"1\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_zero_left": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_zero_left",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_zero_left",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"divides\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(REPLACES -1)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(REWRITE \"div_refl\")",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_zero_right": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_zero_right",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_zero_right",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"0\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_one": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_one",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_one",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"a\")",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_neg": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_neg",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_neg",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"divides\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(INST 1 \"-k\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(EXPAND \"divides\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(SKEEP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(INST 1 \"-k\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_abs": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_abs",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_abs",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(PROP)",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(EXPAND \"abs\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(LIFT-IF)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(PROP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(REWRITE \"div_neg\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "1",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(EXPAND \"abs\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LIFT-IF)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(PROP)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(REWRITE \"div_neg\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_eq_abs": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_eq_abs",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_eq_abs",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(CASE \"a = b OR a = -b\")",
+      "type": "proof-command",
+      "rules": [
+       {
+        "branch": "1",
+        "name": "(1)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "1",
+          "name": "(PROP)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "1.1",
+            "name": "(1.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.1",
+              "name": "(REPLACES -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.1",
+              "name": "(REWRITE \"div_refl\")",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "1.2",
+            "name": "(1.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "1.2",
+              "name": "(REPLACES -1)",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(REWRITE \"div_neg\")",
+              "type": "proof-command",
+              "rules": []
+             },
+             {
+              "branch": "1.2",
+              "name": "(REWRITE \"div_refl\")",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "branch": "2",
+        "name": "(2)",
+        "type": "proof-branch",
+        "rules": [
+         {
+          "branch": "2",
+          "name": "(HIDE 2)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(EXPAND \"abs\")",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LIFT-IF)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LIFT-IF)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(LIFT-IF)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(ASSERT)",
+          "type": "proof-command",
+          "rules": []
+         },
+         {
+          "branch": "2",
+          "name": "(PROP)",
+          "type": "proof-command",
+          "rules": [
+           {
+            "branch": "2.1",
+            "name": "(2.1)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.1",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           },
+           {
+            "branch": "2.2",
+            "name": "(2.2)",
+            "type": "proof-branch",
+            "rules": [
+             {
+              "branch": "2.2",
+              "name": "(ASSERT)",
+              "type": "proof-command",
+              "rules": []
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_trans": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_trans",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_trans",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -1 \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -2 \"j\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -1 -2)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"j * i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -2 1)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(REPLACE -1 -2 RL)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.div_linear": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "div_linear",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "div_linear",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SKOLEM 1 (\"x\" \"y\" \"z\"))",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(FLATTEN)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\" -)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -2 \"j\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKOLEM -1 \"i\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(SKEEP)",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(EXPAND \"divides\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(INST 1 \"p* i + q * j\")",
+      "type": "proof-command",
+      "rules": []
+     },
+     {
+      "branch": "",
+      "name": "(ASSERT)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_coprime_quotients_TCC1": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_coprime_quotients_TCC1",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_coprime_quotients_TCC1",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_coprime_quotients_TCC2": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_coprime_quotients_TCC2",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_coprime_quotients_TCC2",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ],
+ "integers_gcd.gcd_coprime_quotients_TCC3": [
+  {
+   "info": {
+    "theory": "integers_gcd",
+    "formula": "gcd_coprime_quotients_TCC3",
+    "status": "proved",
+    "prover": "PVS 8.1 (SBCL 2.4.8)",
+    "shasum": "9425115259430282d906df184403d99f02d7b4952da5db21273b237f3047feb1"
+   },
+   "origin": ".prf",
+   "proofTree": {
+    "branch": "",
+    "name": "gcd_coprime_quotients_TCC3",
+    "type": "root",
+    "rules": [
+     {
+      "branch": "",
+      "name": "(SUBTYPE-TCC)",
+      "type": "proof-command",
+      "rules": []
+     }
+    ]
+   }
+  }
+ ]
+}

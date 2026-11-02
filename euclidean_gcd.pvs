@@ -4,7 +4,7 @@
 %% PVS specification of the greatest common divisor over an abstract
 %% Euclidean domain  (T, +, *, zero, one).
 %%
-%% This theory generalises gcd_predicate.pvs (the integers) and
+%% This theory generalises integers_gcd.pvs (the integers) and
 %% gaussian_gcd.pvs (the Gaussian integers).  The algebraic notions are
 %% imported from the NASALib library algebra:
 %%
@@ -428,7 +428,7 @@ BEGIN
 
   %% Bézout: the gcd is a T-linear combination of a and b.
   %% Proof by measure induction on size(b), using euclidean_reduction
-  %% and ediv_eq, exactly as in gcd_predicate.bezout.
+  %% and ediv_eq, exactly as in integers_gcd.bezout.
   bezout : LEMMA
     gcd?(a, b, d) IMPLIES EXISTS (x, y : T) : a * x + b * y = d
 
